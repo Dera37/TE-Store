@@ -18,7 +18,7 @@ if (isset($_POST['simpan'])) {
     } else {
         echo "<script>alert('Data gagal ditambahkan!')</script>";
         header("refresh:0, kategori.php");
-    }
+   }
 }
 
 ?>
@@ -30,6 +30,7 @@ if (isset($_POST['simpan'])) {
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>Kategori Produk - TE-Store</title>
+
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -70,7 +71,9 @@ if (isset($_POST['simpan'])) {
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.html" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
+
         <span class="d-none d-lg-block">TE-Store</span>
+
       </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
@@ -82,6 +85,27 @@ if (isset($_POST['simpan'])) {
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/drnk.jpg" alt="Profile" class="rounded-circle">
+
+    <div class="search-bar">
+      <form class="search-form d-flex align-items-center" method="POST" action="#">
+        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
+        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+      </form>
+    </div><!-- End Search Bar -->
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+
+        <li class="nav-item d-block d-lg-none">
+          <a class="nav-link nav-icon search-bar-toggle " href="#">
+            <i class="bi bi-search"></i>
+          </a>
+        </li><!-- End Search Icon-->
+
+        <li class="nav-item dropdown pe-3">
+
+          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -110,7 +134,6 @@ if (isset($_POST['simpan'])) {
     </nav><!-- End Icons Navigation -->
 
   </header><!-- End Header -->
-
    <!-- ======= Sidebar ======= -->
    <aside id="sidebar" class="sidebar">
 
@@ -177,6 +200,7 @@ if (isset($_POST['simpan'])) {
           <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
           <li class="breadcrumb-item">Kategori Produk</li>
           <li class="breadcrumb-item active">Tambah</li>
+
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -201,7 +225,6 @@ if (isset($_POST['simpan'])) {
 
             </div>
           </div>
-
         </div>
       </div>
     </section>
@@ -218,7 +241,9 @@ if (isset($_POST['simpan'])) {
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
+
       Designed by <a href="https://instagram.com/dera.rdnk/" target="_blank">Dera</a>
+
     </div>
   </footer><!-- End Footer -->
 
