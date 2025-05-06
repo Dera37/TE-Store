@@ -44,7 +44,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="index.php" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">TE STORE</span>
       </a>
@@ -56,7 +56,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/drnk.jpg" alt="Profile" class="rounded-circle">           
+            <img src="assets/img/drnk.jpg" alt="Profile" class="rounded-circle">
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -101,42 +101,42 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="kategori.php">
-        <i class="bi bi-airplane"></i>
+          <i class="bi bi-box2-fill"></i>
           <span>Kategori</span>
         </a>
       </li><!-- End Kategori Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="produk.php">
-          <i class="bi bi-question-circle"></i>
+        <i class="bi bi-basket-fill"></i>
           <span>Produk</span>
         </a>
       </li><!-- End Produk Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="keranjang.php">
-          <i class="bi bi-envelope"></i>
+        <i class="bi bi-cart-plus-fill"></i>
           <span>Keranjang</span>
         </a>
       </li><!-- End Keranjang Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="transaksi.php">
-          <i class="bi bi-card-list"></i>
+        <i class="bi bi-clipboard2-fill"></i>
           <span>Transaksi</span>
         </a>
       </li><!-- End Transaksi Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="Laporan.php">
-          <i class="bi bi-box-arrow-in-right"></i>
+        <i class="bi bi-pencil-square"></i>
           <span>Laporan</span>
         </a>
       </li><!-- End Laporan Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pengguna.php">
-          <i class="bi bi-dash-circle"></i>
+        <i class="bi bi-person-circle"></i>
           <span>Pengguna</span>
         </a>
       </li><!-- End Pengguna Page Nav -->
@@ -151,7 +151,7 @@
       <h1>Beranda</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+          <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
           <li class="breadcrumb-item active">Beranda</li>
         </ol>
       </nav>
@@ -164,7 +164,7 @@
         <div class="col-lg-8">
           <div class="row">
 
-          <!-- Welcome Card -->
+            <!-- Welcome Card -->
             <div class="col-12">
               <div class="card info-card customers-card shadow-sm w-100">
                 <div class="card-body text-center py-4">
@@ -186,7 +186,7 @@
                     </div>
                     <div class="ps-3">
                       <h6>145</h6>
-                      
+
                     </div>
                   </div>
                 </div>
@@ -207,7 +207,7 @@
                     </div>
                     <div class="ps-3">
                       <h6>Rp. 100.000</h6>
-                  
+
                     </div>
                   </div>
                 </div>
@@ -215,7 +215,7 @@
               </div>
             </div><!-- End Revenue Card -->
 
-            
+
           </div>
         </div><!-- End Left side columns -->
 
