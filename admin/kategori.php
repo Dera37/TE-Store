@@ -199,13 +199,13 @@
                                     <?php
                                     include "koneksi.php";
                                     $no = 1;
-                                    $squery = isset($_POST['query']) ?
-                                        mysqli_real_escape_string($koneksi, $_POST['query']) : '';
+                                    $query = isset($_POST['query']) ? mysqli_real_escape_string($koneksi, $_POST['query']) : '';
 
                                     $sql_query = "select id_kategori, nm_kategori from tb_kategori";
 
-                                    if (!empty($squery)) {
-                                        $sql_query .= "WHERE nm_kategori LIKE '%squery%'";
+                                    if (!empty($query)) {
+                                        $sql_query .= " WHERE nm_kategori LIKE '%$query%'";
+
                                     }
 
                                     $sql = mysqli_query($koneksi, $sql_query);
