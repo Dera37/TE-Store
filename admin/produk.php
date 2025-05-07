@@ -211,11 +211,13 @@
                                     //Tambahkan ORDER BY
                                     $sql_query .= " ORDER BY tb_produk.id_produk ASC";
 
-                                    $sql = mysqli_num_rows($sql) > 0 {
+                                    $sql = mysqli_query($koneksi, $sql_query);
+
+                                    if (mysqli_num_rows($sql) > 0) {
                                         while ($hasil = mysqli_fetch_array($sql)) {
-                                            ?>
+                                    ?>
                                             <tr>
-                                                <td><php echo $no++; ?></td>
+                                                <td><?php echo $no++; ?></td>
                                                 <td><?php echo $hasil['nm_produk']; ?></td>
                                                 <td>Rp <?php echo number_format($hasil['harga'], 0, ',', '.'); ?></td>
                                                 <td><?php echo $hasil['stok']; ?></td>
@@ -223,25 +225,25 @@
                                                 <td><?php echo $hasil['nm_kategori']; ?></td>
                                                 <td>
                                                     <?php if (!empty($hasil['gambar'])) { ?>
-                                                    <img src="produk_img/<?php echo $hasil['gambar']; ?>" width="100">
-                                                    <php? } else { ?>
+                                                        <img src="produk_img/<?php echo $hasil['gambar']; ?>" width="100">
+                                                    <?php } else { ?>
                                                         Tidak ada gambar
-                                                    </php } ?>
-                                                    </td>
-                                                    </td>
+                                                    <?php } ?>
+                                                </td>
+                                                <td>
                                                     <a href="e_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-warning">
-                                                         <i class="bi bi-pencil-squere"></i>
+                                                        <i class="bi bi-pencil-squere"></i>
                                                     </a>
-                                                    <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" 
-                                                         <i class="bi bi-trash"></i>
+                                                    <a href="h_produk.php?id=<?php echo $hasil['id_produk']; ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda Yakin Ingin Menghapus Data?')">
+                                                        <i class="bi bi-trash"></i>
                                                     </a>
                                                 </td>
                                             </tr>
                                         <?php
                                         }
                                     } else {
-                                     ?>
-                                    </tr>
+                                        ?>
+                                        </tr>
                                     <?php
                                     }
                                     ?>
