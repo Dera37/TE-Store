@@ -114,42 +114,42 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-airplane"></i>
+                <i class="bi bi-box2-fill"></i>
                     <span>Kategori Produk</span>
                 </a>
             </li><!-- End Kategori Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="produk.php">
-                    <i class="bi bi-question-circle"></i>
+                <i class="bi bi-basket-fill"></i>
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="keranjang.php">
-                    <i class="bi bi-envelope"></i>
+                <i class="bi bi-cart4"></i>
                     <span>Keranjang</span>
                 </a>
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-card-list"></i>
+                <i class="bi bi-clipboard2-fill"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Laporan.php">
-                    <i class="bi bi-box-arrow-in-right"></i>
+                <i class="bi bi-pencil-square"></i>
                     <span>Laporan</span>
                 </a>
             </li><!-- End Laporan Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pengguna.php">
-                    <i class="bi bi-dash-circle"></i>
+                <i class="bi bi-person-circle"></i>
                     <span>Pengguna</span>
                 </a>
             </li><!-- End Pengguna Page Nav -->
