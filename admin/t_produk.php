@@ -52,7 +52,7 @@ if (isset($_POST['simpan'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - Nama Website Admin</title>
+    <title>Produk - te store Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -85,7 +85,7 @@ if (isset($_POST['simpan'])) {
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.php" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">Nama Website</span>
+                <span class="d-none d-lg-block">te store</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -102,7 +102,7 @@ if (isset($_POST['simpan'])) {
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Nama Kalian</h6>
+                            <h6>Dera Ardanik</h6>
                             <span>Admin</span>
                         </li>
                         <li>
@@ -228,7 +228,7 @@ if (isset($_POST['simpan'])) {
                                         include "koneksi.php";
                                         $query = mysqli_query($koneksi, "SELECT * FROM tb_ktg");
                                         while ($kategori = mysqli_fetch_array($query)) {
-                                            echo "<option value='{$kategori['id_ktg']}'>{$kategori['nm_ktg']}</option>";
+                                            echo "<option value='{$kategori['id_kategori']}'>{$kategori['nm_kategoi']}</option>";
                                         }
                                         ?>
                                     </select>
@@ -255,10 +255,10 @@ if (isset($_POST['simpan'])) {
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>Nama Website</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>te store</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="link ig">Nama Kalian</a>
+            Designed by <a href="link ig">Dera Ardanik</a>
         </div>
     </footer><!-- End Footer -->
 
