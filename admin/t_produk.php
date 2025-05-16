@@ -1,5 +1,21 @@
 <?php
+session_start();
 include "koneksi.php";
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
+    echo "<script>
+    alert('Akses ditolak! Halaman ini hanya untuk Admin.');
+    window.location.href='login.php';
+  </script>";
+    exit;
+}
 
 // Mendapatka kode produk otomatis
 $auto = mysqli_query($koneksi, "SELECT MAX(id_produk) AS max_code FROM tb_produk");
@@ -14,6 +30,7 @@ if (isset($_POST['simpan'])) {
     $nm_produk = $_POST['nm_produk'];
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
+    $desk = $_POST['desk'];
     $id_kategori = $_POST['id_kategori'];
 
     //Upload Gambar
@@ -24,7 +41,7 @@ if (isset($_POST['simpan'])) {
     $dir = "produk_img/"; //Direktori penyimpanan gambar
     $allowed_extension = array("jpg", "jpeg", "png", "webp");
 
-    if (!in_array($extension, $allowed_extensions)) {
+    if (!in_array($extension, $allowed_extension)) {
         echo "<script>alert('Format tidak valid. Hanya jpg, jpeg, png, dan webp yang diperbolehkan.);<script>";
     } else {
         //Rename file gambar agar unik
@@ -32,7 +49,7 @@ if (isset($_POST['simpan'])) {
         move_uploaded_file($tmp_file, $dir . $imgnewfile);
 
         //Simpan  data ke database
-        $query = mysqli_query($koneksi, "INSERT INTO tb_produk (id_produk, nm_produk, harga, stok, ket, id_ktg,
+        $query = mysqli_query($koneksi, "INSERT INTO tb_produk (id_produk, nm_produk, harga, stok, desk, id_kategori,
          gambar) VALUES ('$id_produk', '$nm_produk', '$harga', '$stok', '$desk', '$id_kategori', '$imgnewfile')");
 
         if ($query) {
@@ -102,7 +119,7 @@ if (isset($_POST['simpan'])) {
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Dera Ardanik</h6>
+                            <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
                             <span>Admin</span>
                         </li>
                         <li>
@@ -113,7 +130,7 @@ if (isset($_POST['simpan'])) {
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="logout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -226,9 +243,9 @@ if (isset($_POST['simpan'])) {
                                         <option value="">-- Pilih Kategori --</option>
                                         <?php
                                         include "koneksi.php";
-                                        $query = mysqli_query($koneksi, "SELECT * FROM tb_ktg");
+                                        $query = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
                                         while ($kategori = mysqli_fetch_array($query)) {
-                                            echo "<option value='{$kategori['id_kategori']}'>{$kategori['nm_kategoi']}</option>";
+                                            echo "<option value='{$kategori['id_kategori']}'>{$kategori['nm_kategori']}</option>";
                                         }
                                         ?>
                                     </select>

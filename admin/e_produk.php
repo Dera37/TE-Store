@@ -1,5 +1,21 @@
 <?php
+session_start();
 include "koneksi.php";
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
+    echo "<script>
+    alert('Akses ditolak! Halaman ini hanya untuk Admin.');
+    window.location.href='login.php';
+  </script>";
+    exit;
+}
 
 //Pastikan ada ID produk yang dikirim
 if (isset($_GET['id'])) {
@@ -20,7 +36,7 @@ if (isset($_POST['update'])) {
     $gamabr_lama = $_POST['gambar lama'];
 
     //Cek apakan ada gambar baru yang di upload
-    if ($_FILES['gamba']['name'] != "") {
+    if ($_FILES['gambar']['name'] != "") {
         $imgfile = $_FILES['gambar']['name'];
         $tmp_file = $_FILES['gambar']['tmp_name'];
         $extension = strtolower(pathinfo($imgfile, PATHINFO_EXTENSION));
@@ -44,10 +60,13 @@ if (isset($_POST['update'])) {
     }
 
     //Update data ke database
-    $query = mysqli_query($koneksi, "UPDATE tb_produk SET nm_produk='$nm_produk', harga='$harga', stok='$stok', ket='$desk', id_ktg='$id_kategori', gambar='$imgnewfile' WHERE id_produk='$id_produk'");
+    $query = mysqli_query($koneksi, "UPDATE tb_produk SET nm_produk='$nm_produk', harga='$harga', stok='$stok', desk='$desk', id_kategori='$id_kategori', gambar='$imgnewfile' WHERE id_produk='$id_produk'");
 
     if ($query) {
-        echo "<script>alert('produk hasil diperbarui!');</script>";
+        echo "<script>alert('produk berhasil diperbarui!');</script>";
+        header("refresh:0, produk.php");
+     } else {
+        echo "<script>alert('Gagal memperbarui produk!');</script>";
         header("refresh:0, produk.php");
     }
 }
@@ -109,7 +128,7 @@ if (isset($_POST['update'])) {
 
                     <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
                         <li class="dropdown-header">
-                            <h6>Dera Ardanik</h6>
+                            <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
                             <span>Admin</span>
                         </li>
                         <li>
@@ -120,7 +139,7 @@ if (isset($_POST['update'])) {
                         </li>
 
                         <li>
-                            <a class="dropdown-item d-flex align-items-center" href="#">
+                            <a class="dropdown-item d-flex align-items-center" href="logout.php">
                                 <i class="bi bi-box-arrow-right"></i>
                                 <span>Sign Out</span>
                             </a>
@@ -230,17 +249,17 @@ if (isset($_POST['update'])) {
                                 <div class="col-12">
                                     <label for="desk" class="form-label">Deskripsi</label>
                                     <textarea class="form-control" id="desk" name="desk" 
-                                    placeholder="Masukkan Deskripsi Produk" required><?php echo $data['ket']; ?></textarea>
+                                    placeholder="Masukkan Deskripsi Produk" required><?php echo $data['desk']; ?></textarea>
                                 </div>
                                 <div class="col-12">
                                     <label for="id_kategori" class="form-label">Kategori</label>
                                     <select class="form-control" id="id_kategori" name="id_kategori" required>
                                         <option value="">-- Pilih Kategori --</option>
                                         <?php
-                                        $query_kategori = mysqli_query($koneksi, "SELECT * FROM tb_ktg");
+                                        $query_kategori = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
                                         while ($kategori = mysqli_fetch_array($query_kategori)) {
-                                            $selected = ($kategori['id_ktg'] == $data['id_ktg']) ? 'selected' : '';
-                                            echo "<option value=>'{$kategori['id_ktg']}' $selected>{$kategori['nm_ktg']}</option>";
+                                            $selected = ($kategori['id_kategori'] == $data['id_kategori']) ? 'selected' : '';
+                                            echo "<option value='{$kategori['id_kategori']}' $selected>{$kategori['nm_kategori']}</option>";
                                         }
                                         ?>
                                     </select>
@@ -255,7 +274,7 @@ if (isset($_POST['update'])) {
                                 </div>
                                 <div class="text-center">
                                     <button type="reset" class="btn btn-secondary">Reset</button>
-                                    <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
+                                    <button type="submit" class="btn btn-primary" name="update">Simpan</button>
                                 </div>
                             </form>
 

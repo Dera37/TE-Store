@@ -1,5 +1,22 @@
 <?php
+session_start();
 include "koneksi.php";
+
+
+// Cek apakah sudah login
+if (!isset($_SESSION["login"])) {
+    header("Location: login.php");
+    exit;
+}
+
+// Cek apakah status tersedia dan pastikan user adalah admin
+if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
+    echo "<script>
+    alert('Akses ditolak! Halaman ini hanya untuk Admin.');
+    window.location.href='login.php';
+  </script>";
+    exit;
+}
 
 if (isset($_POST['simpan'])) {
     $auto = mysqli_query($koneksi, "select max(id_kategori) as max_code from tb_kategori");
@@ -101,7 +118,7 @@ if (isset($_POST['simpan'])) {
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Dera</h6>
+              <h6><?php echo isset($_SESSION['username']) ? htmlspecialchars($_SESSION['username']) : 'Guest'; ?></h6>
               <span>Admin</span>
             </li>
             <li>
@@ -112,7 +129,7 @@ if (isset($_POST['simpan'])) {
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="logout.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -131,14 +148,14 @@ if (isset($_POST['simpan'])) {
 <ul class="sidebar-nav" id="sidebar-nav">
 
   <li class="nav-item">
-    <a class="nav-link " href="index.php">
+    <a class="nav-link collapsed" href="index.php">
       <i class="bi bi-grid"></i>
       <span>Beranda</span>
     </a>
   </li><!-- End Dashboard Nav -->
 
   <li class="nav-item">
-    <a class="nav-link collapsed" href="kategori.php">
+    <a class="nav-link" href="kategori.php">
     <i class="bi bi-airplane"></i>
       <span>Kategori</span>
     </a>
