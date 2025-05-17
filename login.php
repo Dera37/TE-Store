@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -185,8 +188,35 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb-30">
+                        <?php
+                        
+                        include 'admin/koneksi.php'; // koneksi database
+
+                        if (isset($_POST['login'])) {
+                            $username = $_POST['username'];
+                            $password = $_POST['password'];
+
+                            // Query user dengan status customer
+                            $query = "SELECT * FROM tb_user WHERE username='$username' AND password='$password' AND status='customer'";
+                            $result = mysqli_query($conn, $query);
+
+                            if (mysqli_num_rows($result) === 1) {
+                                $user = mysqli_fetch_assoc($result);
+                                $_SESSION['id_user'] = $user['id_user'];
+                                $_SESSION['username'] = $user['username'];
+                                $_SESSION['status'] = $user['status'];
+
+                                // Redirect ke halaman customer
+                                header("Location: beranda_customer.php");
+                                exit();
+                            } else {
+                                echo "<script>alert('Username atau password salah atau Anda bukan customer'); window.location='index.php';</script>";
+                            }
+                        }
+                        ?>
+
                         <!-- Login Form s-->
-                        <form action="#">
+                        <form action="login.php" method="post">
                             <div class="login-form">
                                 <h4 class="login-title">Login</h4>
                                 <div class="row">
@@ -199,12 +229,9 @@
                                         <input class="mb-0" type="password" placeholder="Masukkan Password">
                                     </div>
                                     <div class="col-md-8">
-                                        <div class="check-box d-inline-block ml-0 ml-md-2 mt-10">
-                                            <input type="checkbox" id="remember_me">
-                                        </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="register-button mt-0">Login</button>
+                                        <button type="submit" name="login">Login</button>
                                     </div>
                                 </div>
                             </div>
