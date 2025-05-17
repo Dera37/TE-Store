@@ -1,3 +1,16 @@
+<?php
+
+require 'admin/koneksi.php';
+require 'fungsion.php';
+$sql = mysqli_query($koneksi, "select * from tb_user");
+$data = mysqli_fetch_array($sql);
+
+
+?>
+
+<!dectype html>
+<html lang="zxx">
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     
@@ -44,6 +57,17 @@
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            if (registrasi($_POST)) {
+                echo "<script>alert('User baru berhasil ditambahkan');";
+                echo "window.location.href = 'login.php';</script>";
+                exit;
+            } else {
+                echo "<script>alert('Regisrasi gagal');</script>";
+            }
+        }
+        ?>
     <!--[if lt IE 8]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
@@ -234,8 +258,8 @@
                                         <label>Konfirmasi Password</label>
                                         <input class="mb-0" type="password" placeholder="Masukkan Konfirmasi Password" name="password2" required>
                                     </div>
-                                    <div class="col-12">
-                                        <button class="register-button mt-0" type="submit" name="register">Register</button>
+                                    <div class="col-md-12 form-group">
+                                        <button type="submit" value="submit" class="btn_3" name="register">Daftar Sekarang</button>
                                     </div>
                                 </div>
                             </div>
