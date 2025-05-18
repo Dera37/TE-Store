@@ -527,7 +527,7 @@ session_start();
                                         <div class="col-lg-6 col-md-6">
                                             <ul class="pagination-box">
                                             <?php if ($page > 1) ; ?>
-                                                <li><a href="?page=<?= $page - 1 ?>$kategori=<?= $kategori ?>&keyword=<?= $keyword ?>" class="Previous"><i class="fa fa-chevron-left"></i> Sebelumnya</a></li>
+                                                <li><a href="?page=<?= $page - 1 ?>&kategori=<?= $kategori ?>&keyword=<?= $keyword ?>" class="Previous"><i class="fa fa-chevron-left"></i> Sebelumnya</a></li>
                                                 <?php endif; ?>
 
                                                 <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
@@ -567,8 +567,16 @@ session_start();
                                         $kategoriQuery = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
 
                                         while ($kategori = mysqli_fatch_assoc($kategoriQuery)) {
-                                            $checked = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id'])
+                                            $checked = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_kategori']) ? 'checked' : '';
+                                            echo '<li>
+                                        <label>
+                                            <input type="radio" name="kategori" value="' . $kategori['id_kategori'] . '" ' . $checked . ' onchange="this.from.submit()">' . $kategori['nm_kategori'] . '
+                                            </label>
+                                            </li>' ;
                                         }
+                                        ?>
+                                        </ul>
+                                    </form>
 
                                             <li><input type="checkbox" name="product-categori"><a href="#">Prime Video (13)</a></li>
                                             <li><input type="checkbox" name="product-categori"><a href="#">Computers (12)</a></li>
