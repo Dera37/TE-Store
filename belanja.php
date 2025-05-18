@@ -46,6 +46,19 @@ session_start();
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Modernizr js -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script  src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        .nice-select .list {
+            max-height: none !important;
+            /* biar tidak terbatas tingginya */
+            overflow: visible !important;
+        }
+        .nice-select .list {
+            max-height: 300px !important;
+            overflow-y: auto !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -253,11 +266,25 @@ session_start();
                                     </ul>
                                     <!-- shop-item-filter-list end -->
                                 </div>
-                                <div class="toolbar-amount">
-                                    <span>Showing 1 to 9 of 15</span>
-                                </div>
+                                <?php
+                                $page   = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+                                $limit  = 12;
+                                $offset = ($page - 1) * $limit;
+                                $start = $offset + 1;
+                                //Hitung total data
+                                $countSql = "
+                                SELECT COUNT(*) AS total
+                                FROM tb_produk p
+                                JOIN tb_kategori k ON p.id_kategori = k.id_kategori
+                                WHERE 1=1";
+                                $countQuery = mysqli_query($koneksi, $countSql);
+                                $totalData = mysqli_fetch_assoc($countQuery)['total'];
+                                $end = min($offset = $limit, $totalData);
+                                ?>
+                                <span class="mt-1">Menampilkan <?= $start ?> hingga <?= $end ?> dari <?= $totalData ?> produk</span>
                             </div>
-
+                            <!-- product-select-box start -->
+                             <!-- product-select-box end -->
                         </div>
                         <!-- shop-top-bar end -->
                         <!-- shop-products-wrapper start -->
@@ -266,48 +293,190 @@ session_start();
                                 <div id="grid-view" class="tab-pane fade" role="tabpanel">
                                     <div class="product-area shop-product-area">
                                         <div class="row">
+                                            <?php
+                                            include 'admin/koneksi.php';
+
+                                            // Ambil parameter pencarian dan sorting
+                                            $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';
+                                            $keyword = isset($_GET['keyword']) ? (int) $_GET['keyword'] : '';
+                                            $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+                                            $limit = 12;
+                                            $offset = ($page - 1) * $limit;
+                                            $sort = isset($GET['sort']) ? $_GET['sort'] : 'default';
+
+                                            //Tentukan urutan sorting
+                                            switch ($sort) {
+                                                case 'name-asc':
+                                                    $orderBy = 'ORDER BY p.nm_produk ASC';
+                                                    break;
+                                                case 'name-desc';
+                                                    $orderBy = 'ORDER BY p.nm_produk DESC';
+                                                    break;
+                                                case 'pricase-asc';
+                                                    $orderBy = 'ORDER BY p.harga ASC';
+                                                    break;
+                                                case 'pricase-desc';
+                                                    $orderBy = 'ORDER BY p.harga DESC';
+                                                    break;
+                                                default;
+                                                    $orderBy = 'ORDER BY p.id_harga DESC'; // default terbaru
+                                                    break;
+                                            }
+
+                                            // Hitung total data
+                                            $countSql = "
+                                            SELECT COUNT(*) AS total
+                                            FROM tb_produk p
+                                            JOIN tb_kategori k ON p.id_kategori = k.id_kategori
+                                            WHERE 1=1
+                                            ";
+                                            if(!empty($kategori)) {
+                                                $countSql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $kategori) . "'";
+                                            }
+                                            if(!empty($keyword)) {
+                                                $countSql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
+                                            }
+
+                                            $countQuery = mysqli_query($koneksi, $countSql);
+                                            $totalData = mysqli_fetch_assoc($countQuery)['total'];
+                                            $totalPages = ceil($totalData / $limit);
+
+                                            // Ambil data produk
+                                            $sql = "
+                                            SELECT p.*, k.nm_kategori
+                                            FROM tb_produk p
+                                            JOIN tb_kategori k ON p.id_kategori = k.id_kategori
+                                            WHERE 1=1";
+
+                                            if (!empty($kategori)) {
+                                                $sql .= "AND p.id_kategori= '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
+                                            }
+                                            if (!empty($keyword)) {
+                                                $sql .= "AND p.id_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
+                                            }
+
+                                            $sql .= " $orderBy LIMIT $limit OFFSET $offset";
+                                            while ($data = mysqli_fetch_assoc($query)) {
+                                                ?>
+                                            
+
                                             <div class="col-lg-4 col-md-4 col-sm-6 mt-40">
                                                 <!-- single-product-wrap start -->
                                                 <div class="single-product-wrap">
                                                     <div class="product-image">
-                                                        <a href="single-product.html">
-                                                            <img src="images/product/large-size/1.jpg" alt="Li's Product Image">
+                                                        <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">
+                                                            <img src="admin/produk_img/<?= $data['gambar']; ?>" alt="<?= $data['nm_produk']; ?>" width="300" height="300">
                                                         </a>
                                                     </div>
                                                     <div class="product_desc">
                                                         <div class="product_desc_info">
                                                             <div class="product-review">
                                                                 <h5 class="manufacturer">
-                                                                    <a href="product-details.html">Graphic Corner</a>
+                                                                    <a href="#"><?= $data['nm_kategori']; ?></a>
                                                                 </h5>
                                                             </div>
-                                                            <h4><a class="product_name" href="single-product.html">Accusantium dolorem1</a></h4>
+                                                            <h4><a class="product_name" href="detail_produk.php?id=<?= $data['id_produk']; ?>">
+                                                                <?= $data['nm_produk']; ?>
+                                                            </a></h4>
                                                             <div class="price-box">
-                                                                <span class="new-price">$46.80</span>
+                                                                <span class="new-price">Rp<?= number_format($data['harga'], 0, ',', '.'); ?></span>
+                                                                <span class="new-price">Rp<?= number_format($data['harga'], 0, ',', '.'); ?></span>
                                                             </div>
                                                         </div>
                                                         <div class="add-actions">
                                                             <ul class="add-actions-link">
-                                                                <li class="add-cart active"><a href="shopping-cart.html">Add to cart</a></li>
-                                                                <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
-                                                                <li><a class="links-details" href="wishlist.html"><i class="fa fa-heart-o"></i></a></li>
+                                                                <li class="add-cart active">
+                                                                    <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">Beli Sekarang</a>
+                                                                </li>
+                                                                <li><a href="#" title="quick view" data-toggle="modal" data-target="#exampleModalCenter" data-id="<?= $data['id_produk']; ?>">
+                                                                    <i class="fa fa-eye"></i>
+                                                                </a>
+                                                            </li> 
                                                             </ul>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!-- single-product-wrap end -->
                                             </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div id="list-view" class="tab-pane fade product-list-view active show" role="tabpanel">
                                     <div class="row">
                                         <div class="col">
+                                            <?php
+                                            include 'admin/koneksi.php';
+
+                                            // Ambil parameter pencarian dan sorting
+                                            $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';
+                                            $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
+                                            $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+                                            $limit = 12;
+                                            $offset = ($page - 1) * $limit;
+                                            $sort = isset($_GET['sort']) ? $_GET['sort'] : 'default';
+
+                                            // Temukan urutan sorting
+                                            switch ($sort) {
+                                                case 'name-asc':
+                                                    $orderBy = 'ORDER BY p.nm_produk ASC';
+                                                    break;
+                                                case 'name-desc':
+                                                    $orderBy = 'ORDER BY p.nm_produk DESC';
+                                                    break;
+                                                case 'price-asc';
+                                                    $orderBy = 'ORDER BY p.harga ASC';
+                                                    break;
+                                                case 'price-desc';
+                                                    $orderBy = 'ORDER BY p.harga DESC';
+                                                    break;
+                                                default:
+                                                    $orderBy = 'ORDER BY p.id_produk DESC'; // default terbaru
+                                                    break;
+                                            }
+
+                                            //Hitung total data
+                                            $countSql = "
+                                            SELECT COUNT(*) AS total
+                                            FROM tb-produk p
+                                            JOIN tb_kategori k ON p.id_kategori = k.id_kategori
+                                            WHERE 1=1";
+
+                                            if (!empty($kategori)) {
+                                                $countSql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori). "'";
+                                            }
+                                            if (!empty($keyword)) {
+                                                $countSql .= " AND p.id_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword). "%'";
+                                            }
+
+                                            $countQuery = mysqli_query($koneksi, $countSql);
+                                            $totalData = mysqli_fetch_assoc($countQuery)['total'];
+                                            $totalPages = ceil($totalData / $limit);
+
+                                            // Ambil data produk
+                                            $sql = "
+                                            SELECT p.*, k.nm_kategori
+                                            FROM tb-produk p
+                                            JOIN tb_kategori k ON p.id_kategori = k.id_kategori
+                                            WHERE 1=1";
+
+                                            if (!empty($kategori)) {
+                                                $countSql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori). "'";
+                                            }
+                                            if (!empty($keyword)) {
+                                                $countSql .= " AND p.id_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword). "%'";
+                                            }
+
+                                            $sql .= " $orderBy LIMIT $limit OFFSET $offset";
+
+                                            $query = mysqli_query($koneksi, $sql);
+                                            while ($data = mysqli_fetch_assoc($query)) {
+                                                ?>
+
                                             <div class="row product-layout-list">
                                                 <div class="col-lg-3 col-md-5 ">
                                                     <div class="product-image">
-                                                        <a href="single-product.html">
-                                                            <img src="images/product/large-size/12.jpg" alt="Li's Product Image">
+                                                        <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">
+                                                            <img src="admin/produk_img/<?= $data['gambar']; ?>" alt="<?= $data['nm_produk']; ?>" width="300" height="300">
                                                         </a>
                                                     </div>
                                                 </div>
@@ -316,45 +485,60 @@ session_start();
                                                         <div class="product_desc_info">
                                                             <div class="product-review">
                                                                 <h5 class="manufacturer">
-                                                                    <a href="product-details.html">Graphic Corner</a>
+                                                                    <a href="detail_produk.php?id=<?= $data['id_produk']; ?>"> 
+                                                                    </a>
                                                                 </h5>
                                                             </div>
-                                                            <h4><a class="product_name" href="single-product.html">Hummingbird printed t-shirt</a></h4>
+                                                            <h4><a class="product_name" href="detail_produk.php?id=<?= $data['id_produk']; ?>"> 
+                                                                <?= $data['nm_produk']; ?>
+                                                            </a></h4>
                                                             <div class="price-box">
-                                                                <span class="new-price">$46.80</span>
+                                                                <span class="new-price">Rp<?= number_format($data['harga'], 0, ',', '.'); ?></span>
                                                             </div>
-                                                            <p>Beach Camera Exclusive Bundle - Includes Two Samsung Radiant 360 R3 Wi-Fi Bluetooth Speakers. Fill The Entire Room With Exquisite Sound via Ring Radiator Technology. Stream And Control R3 Speakers Wirelessly With Your Smartphone. Sophisticated, Modern Desig</p>
+                                                            <p><?= substr($data['desk'], 0, 150); ?>...</p>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <div class="shop-add-action mb-xs-30">
                                                         <ul class="add-actions-link">
-                                                            <li class="add-cart"><a href="#">Add to cart</a></li>
-
-                                                            <li><a class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" href="#"><i class="fa fa-eye"></i>Quick view</a></li>
+                                                            <li class="add-cart">
+                                                                <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">Beli Sekarang</a>
+                                                            </li>
+                                                            <li>
+                                                                <a href="#" class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" data-id="<?= $data['id_produk']; ?>">
+                                                                    <i class="fa fa-eye"></i>Lipat Cepat
+                                                                </a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </div>
+                                            <?php } ?>
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="paginatoin-area">
                                     <div class="row">
                                         <div class="col-lg-6 col-md-6">
-                                            <p>Showing 1-12 of 13 item(s)</p>
+                                            <p>Menampilkan <?= min($limit, $totalData - $offset) ?> dari <?= $totalData ?> produk</p>
                                         </div>
                                         <div class="col-lg-6 col-md-6">
                                             <ul class="pagination-box">
-                                                <li><a href="#" class="Previous"><i class="fa fa-chevron-left"></i> Previous</a>
+                                            <?php if ($page > 1) ; ?>
+                                                <li><a href="?page=<?= $page - 1 ?>$kategori=<?= $kategori ?>&keyword=<?= $keyword ?>" class="Previous"><i class="fa fa-chevron-left"></i> Sebelumnya</a></li>
+                                                <?php endif; ?>
+
+                                                <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                                                <li class="<?= ($i == $page) ? 'active' : '' ?>">
+                                                <a href="?page=?=<?= $i ?>&kategori=<?= $kategori ?>&keyword=<?= $keyword ?>"><?= $i ?></a>
                                                 </li>
-                                                <li class="active"><a href="#">1</a></li>
-                                                <li><a href="#">2</a></li>
-                                                <li><a href="#">3</a></li>
-                                                <li>
-                                                    <a href="#" class="Next"> Next <i class="fa fa-chevron-right"></i></a>
-                                                </li>
+                                                <?php endfor; ?>
+
+                                                <?php if ($page < $totalPages) : ?>
+                                                <li><a href="?page=<?= $page + 1 ?>&kategori=<?= $kategori ?>&keyword=<?= $keyword ?>" class="Next">Berikutnya <i class="fa fa-chevron-right"></i></a></li>
+                                                <?php endif; ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -376,8 +560,16 @@ session_start();
                             <div class="filter-sub-area">
                                 <h5 class="filter-sub-titel">Kategori Produk</h5>
                                 <div class="categori-checkbox">
-                                    <form action="#">
+                                    <form action="" method="get">
                                         <ul>
+                                        <?php
+                                        include 'admin/koneksi.php';
+                                        $kategoriQuery = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
+
+                                        while ($kategori = mysqli_fatch_assoc($kategoriQuery)) {
+                                            $checked = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id'])
+                                        }
+
                                             <li><input type="checkbox" name="product-categori"><a href="#">Prime Video (13)</a></li>
                                             <li><input type="checkbox" name="product-categori"><a href="#">Computers (12)</a></li>
                                             <li><input type="checkbox" name="product-categori"><a href="#">Electronics (11)</a></li>
