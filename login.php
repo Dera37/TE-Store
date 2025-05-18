@@ -1,5 +1,31 @@
 <?php
 session_start();
+
+require "admin/koneksi.php";
+
+if (isset($_POST["login"])) {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    $result = mysqli_query($koneksi, "SELECT * FROM tb_user WHERE username='$username'");
+
+    // cek username
+    if(mysqli_num_rows($result) === 1) {
+        //cek password
+        $row = mysqli_fetch_assoc($result);
+        if (password_verify($password, $row["password"])) {
+            // set session
+            $_SESSION["login"] = true;
+            $_SESSION["username"] = $row["username"];
+            $_SESSION["id_user"] = $row["id_user"];
+            header("refresh:0, index.php");
+        } else {
+            echo "<script>alert('Username atau password yang anda masukkan salah')</script>";
+        }
+    } else {
+        echo "<script>alert('Username atau password yang anda masukkan salah')</script>";
+    }
+}
 ?>
 <!doctype html>
 <html class="no-js" lang="zxx">
@@ -188,50 +214,21 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-xs-12 col-lg-6 mb-30">
-                        <?php
-                        
-                        include 'admin/koneksi.php'; // koneksi database
-
-                        if (isset($_POST['login'])) {
-                            $username = $_POST['username'];
-                            $password = $_POST['password'];
-
-                            // Query user dengan status customer
-                            $query = "SELECT * FROM tb_user WHERE username='$username' AND password='$password' AND status='customer'";
-                            $result = mysqli_query($conn, $query);
-
-                            if (mysqli_num_rows($result) === 1) {
-                                $user = mysqli_fetch_assoc($result);
-                                $_SESSION['id_user'] = $user['id_user'];
-                                $_SESSION['username'] = $user['username'];
-                                $_SESSION['status'] = $user['status'];
-
-                                // Redirect ke halaman customer
-                                header("Location: beranda_customer.php");
-                                exit();
-                            } else {
-                                echo "<script>alert('Username atau password salah atau Anda bukan customer'); window.location='index.php';</script>";
-                            }
-                        }
-                        ?>
-
                         <!-- Login Form s-->
-                        <form action="login.php" method="post">
+                        <form method="post">
                             <div class="login-form">
                                 <h4 class="login-title">Login</h4>
                                 <div class="row">
                                     <div class="col-md-12 col-12 mb-20">
                                         <label>Username</label>
-                                        <input class="mb-0" type="username" placeholder="Masukkan Username">
+                                        <input class="mb-0" type="text" placeholder="Masukkan Username" name="username" required>
                                     </div>
                                     <div class="col-12 mb-20">
                                         <label>Password</label>
-                                        <input class="mb-0" type="password" placeholder="Masukkan Password">
-                                    </div>
-                                    <div class="col-md-8">
+                                        <input class="mb-0" type="password" placeholder="Masukkan Password" name="password" required>
                                     </div>
                                     <div class="col-md-12">
-                                        <button type="submit" name="login">Login</button>
+                                        <button class="register-button mt-0" type="submit" name="login">Login</button>
                                     </div>
                                 </div>
                             </div>
