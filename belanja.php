@@ -486,7 +486,7 @@ session_start();
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">
+                                                                        <a href="#"><?= $data['nm_kategori'];?>
                                                                         </a>
                                                                     </h5>
                                                                 </div>

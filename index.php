@@ -5,7 +5,7 @@
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Home Version Four || limupa - Digital Products Store ECommerce Bootstrap 4 Template</title>
+        <title>Home Version Four - TE Store </title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -59,7 +59,7 @@
                             <div class="col-lg-3 col-md-4">
                                 <div class="header-top-left">
                                     <ul class="phone-wrap">
-                                        <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
+                                        
                                     </ul>
                                 </div>
                             </div>
@@ -68,41 +68,13 @@
                             <div class="col-lg-9 col-md-8">
                                 <div class="header-top-right">
                                     <ul class="ht-menu">
-                                        <!-- Begin Setting Area -->
-                                        <li>
-                                            <div class="ht-setting-trigger"><span>Setting</span></div>
-                                            <div class="setting ht-setting">
-                                                <ul class="ht-setting-list">
-                                                    <li><a href="login-register.html">My Account</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
-                                                    <li><a href="login-register.html">Sign In</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
+                                        
                                         <!-- Setting Area End Here -->
                                         <!-- Begin Currency Area -->
-                                        <li>
-                                            <span class="currency-selector-wrapper">Currency :</span>
-                                            <div class="ht-currency-trigger"><span>USD $</span></div>
-                                            <div class="currency ht-currency">
-                                                <ul class="ht-setting-list">
-                                                    <li><a href="#">EUR €</a></li>
-                                                    <li class="active"><a href="#">USD $</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
+                                        
                                         <!-- Currency Area End Here -->
                                         <!-- Begin Language Area -->
-                                        <li>
-                                            <span class="language-selector-wrapper">Language :</span>
-                                            <div class="ht-language-trigger"><span>English</span></div>
-                                            <div class="language ht-language">
-                                                <ul class="ht-setting-list">
-                                                    <li class="active"><a href="#"><img src="images/menu/flag-icon/1.jpg" alt="">English</a></li>
-                                                    <li><a href="#"><img src="images/menu/flag-icon/2.jpg" alt="">Français</a></li>
-                                                </ul>
-                                            </div>
-                                        </li>
+                                        
                                         <!-- Language Area End Here -->
                                     </ul>
                                 </div>
@@ -201,7 +173,7 @@
                                         <option value="15">Smartwatch</option>                           
                                         <option value="16">Accessories</option>
                                     </select>
-                                    <input type="text" placeholder="Enter your search key ...">
+                                    
                                     <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                                 </form>
                                 <!-- Header Middle Searchbox Area End Here -->
@@ -210,20 +182,12 @@
                                     <ul class="hm-menu">
                                         <!-- Begin Header Middle Wishlist Area -->
                                         <li class="hm-wishlist">
-                                            <a href="wishlist.html">
-                                                <span class="cart-item-count wishlist-item-count">0</span>
-                                                <i class="fa fa-heart-o"></i>
-                                            </a>
+                                            
                                         </li>
                                         <!-- Header Middle Wishlist Area End Here -->
                                         <!-- Begin Header Mini Cart Area -->
                                         <li class="hm-minicart">
-                                            <div class="hm-minicart-trigger">
-                                                <span class="item-icon"></span>
-                                                <span class="item-text">£80.00
-                                                    <span class="cart-item-count">2</span>
-                                                </span>
-                                            </div>
+                                           
                                             <span></span>
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
@@ -282,7 +246,7 @@
                                <div class="hb-menu">
                                    <nav>
                                        <ul>
-                                           <li class="dropdown-holder"><a href="index.html">Home</a>
+                                           <li class="dropdown-holder"><a href="index.html">Beranda</a>
                                                <ul class="hb-dropdown">
                                                    <li><a href="index.html">Home One</a></li>
                                                    <li><a href="index-2.html">Home Two</a></li>
@@ -290,7 +254,7 @@
                                                    <li class="active"><a href="index-4.html">Home Four</a></li>
                                                </ul>
                                            </li>
-                                           <li class="megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
+                                           <li class="megamenu-holder"><a href="shop-left-sidebar.html">Belanja</a>
                                                <ul class="megamenu hb-megamenu">
                                                    <li><a href="shop-left-sidebar.html">Shop Page Layout</a>
                                                        <ul>
@@ -324,7 +288,7 @@
                                                    </li>
                                                </ul>
                                            </li>
-                                           <li class="dropdown-holder"><a href="blog-left-sidebar.html">Blog</a>
+                                           <li class="dropdown-holder"><a href="blog-left-sidebar.html">Hubungi Kami</a>
                                                <ul class="hb-dropdown">
                                                    <li class="sub-dropdown-holder"><a href="blog-left-sidebar.html">Blog Grid View</a>
                                                        <ul class="hb-dropdown hb-sub-dropdown">
@@ -356,51 +320,6 @@
                                                    </li>
                                                </ul>
                                            </li>
-                                           <li class="megamenu-static-holder"><a href="index.html">Pages</a>
-                                               <ul class="megamenu hb-megamenu">
-                                                   <li><a href="blog-left-sidebar.html">Blog Layouts</a>
-                                                       <ul>
-                                                           <li><a href="blog-2-column.html">Blog 2 Column</a></li>
-                                                           <li><a href="blog-3-column.html">Blog 3 Column</a></li>
-                                                           <li><a href="blog-left-sidebar.html">Grid Left Sidebar</a></li>
-                                                           <li><a href="blog-right-sidebar.html">Grid Right Sidebar</a></li>
-                                                           <li><a href="blog-list.html">Blog List</a></li>
-                                                           <li><a href="blog-list-left-sidebar.html">List Left Sidebar</a></li>
-                                                           <li><a href="blog-list-right-sidebar.html">List Right Sidebar</a></li>
-                                                       </ul>
-                                                   </li>
-                                                   <li><a href="blog-details-left-sidebar.html">Blog Details Pages</a>
-                                                       <ul>
-                                                           <li><a href="blog-details-left-sidebar.html">Left Sidebar</a></li>
-                                                           <li><a href="blog-details-right-sidebar.html">Right Sidebar</a></li>
-                                                           <li><a href="blog-audio-format.html">Blog Audio Format</a></li>
-                                                           <li><a href="blog-video-format.html">Blog Video Format</a></li>
-                                                           <li><a href="blog-gallery-format.html">Blog Gallery Format</a></li>
-                                                       </ul>
-                                                   </li>
-                                                   <li><a href="index.html">Other Pages</a>
-                                                       <ul>
-                                                           <li><a href="login-register.html">My Account</a></li>
-                                                           <li><a href="checkout.html">Checkout</a></li>
-                                                           <li><a href="compare.html">Compare</a></li>
-                                                           <li><a href="wishlist.html">Wishlist</a></li>
-                                                           <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                                       </ul>
-                                                   </li>
-                                                   <li><a href="index.html">Other Pages 2</a>
-                                                       <ul>
-                                                           <li><a href="contact.html">Contact</a></li>
-                                                           <li><a href="about-us.html">About Us</a></li>
-                                                           <li><a href="faq.html">FAQ</a></li>
-                                                           <li><a href="404.html">404 Error</a></li>
-                                                       </ul>
-                                                   </li>
-                                               </ul>
-                                           </li>
-                                           <li><a href="about-us.html">About Us</a></li>
-                                           <li><a href="contact.html">Contact</a></li>
-                                           <li><a href="shop-left-sidebar.html">Smartwatch</a></li>
-                                           <li><a href="shop-left-sidebar.html">Accessories</a></li>
                                        </ul>
                                    </nav>
                                </div>
