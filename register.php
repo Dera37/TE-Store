@@ -238,7 +238,7 @@ $data = mysqli_fetch_array($sql);
                         <div class="banner-wrapper text-center">
                             <img src="images/bg-banner/4.png" alt="Banner Toko Elektronik" class="img-fluid" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 100%;">
                             <p class="mt-3" style="font-size: 16px; color: #555;">
-                                Temukan smartphone, tablet, laptop, dan produk elektronik terbaik hanya di Technozone!<br>
+                                Temukan smartphone, tablet, laptop, dan produk elektronik terbaik hanya di TE-Store!<br>
                                 <a href="login.php" style="color: #007bff; text-decoration: underline;">Sudah punya akun? Login di sini.</a>
                             </p>
                         </div>
@@ -286,8 +286,8 @@ $data = mysqli_fetch_array($sql);
                                         <img src="images/shipping-icon/1.png" alt="Shipping Icon">
                                     </div>
                                     <div class="shipping-text">
-                                        <h2>Free Delivery</h2>
-                                        <p>And free returns. See checkout for delivery dates.</p>
+                                        <h2>Pengiriman Gratis</h2>
+                                        <p>Dan pengemblian gratis. Lihat dihalaman checkout untuk tanggal pengiriman.</p>
                                     </div>
                                 </div>
                             </div>
@@ -299,8 +299,8 @@ $data = mysqli_fetch_array($sql);
                                         <img src="images/shipping-icon/2.png" alt="Shipping Icon">
                                     </div>
                                     <div class="shipping-text">
-                                        <h2>Safe Payment</h2>
-                                        <p>Pay with the world's most popular and secure payment methods.</p>
+                                        <h2>Pembayaran Aman</h2>
+                                        <p>Bayar dengan metode pembayaran paling populer dan aman di dunia.</p>
                                     </div>
                                 </div>
                             </div>
@@ -312,8 +312,8 @@ $data = mysqli_fetch_array($sql);
                                         <img src="images/shipping-icon/3.png" alt="Shipping Icon">
                                     </div>
                                     <div class="shipping-text">
-                                        <h2>Shop with Confidence</h2>
-                                        <p>Our Buyer Protection covers your purchasefrom click to delivery.</p>
+                                        <h2>Belanja dengan Percaya Diri</h2>
+                                        <p>Perlindungan Pembeli kami melindungi pembelian Andna dari klik hingga pengiriman.</p>
                                     </div>
                                 </div>
                             </div>
@@ -325,8 +325,8 @@ $data = mysqli_fetch_array($sql);
                                         <img src="images/shipping-icon/4.png" alt="Shipping Icon">
                                     </div>
                                     <div class="shipping-text">
-                                        <h2>24/7 Help Center</h2>
-                                        <p>Have a question? Call a Specialist or chat online.</p>
+                                        <h2>Pusat Bantuan 24/7</h2>
+                                        <p>Punya pertanyaan? Hubungi Spesialis kami atau chat secara online.</p>
                                     </div>
                                 </div>
                             </div>
@@ -345,23 +345,25 @@ $data = mysqli_fetch_array($sql);
                             <!-- Begin Footer Logo Area -->
                             <div class="col-lg-4 col-md-6">
                                 <div class="footer-logo">
-                                    <img src="images/menu/logo/1.jpg" alt="Footer Logo">
+                                    <h1>TE-Store</h1>
                                     <p class="info">
-                                        We are a team of designers and developers that create high quality HTML Template & Woocommerce, Shopify Theme.
+                                        TE-Store hadir untuk memenuhi kebutuhan teknologi Anda. 
+                                        Tempat terbaik untuk menemukan berbagai produk elektronik berkualitas dengan harga bersahabat. 
+                                        Dari gadget terbaru hingga perangkat rumah tangga canggih, semua ada di sini!
                                     </p>
                                 </div>
                                 <ul class="des">
                                     <li>
-                                        <span>Address: </span>
-                                        6688Princess Road, London, Greater London BAS 23JK, UK
+                                        <span>ALAMAT: </span>
+                                        Jl. Randu Blatung No.KM.5, Kec. Cepu, Kabupaten Blora, Jawa Tengah 58315
                                     </li>
                                     <li>
-                                        <span>Phone: </span>
-                                        <a href="#">(+123) 123 321 345</a>
+                                        <span>TELEPON: </span>
+                                        <a href="#">(+62) 882 0068 07145</a>
                                     </li>
                                     <li>
-                                        <span>Email: </span>
-                                        <a href="mailto://info@yourdomain.com">info@yourdomain.com</a>
+                                        <span>EMAIL: </span>
+                                        <a href="mailto://info@testore.com">info@testore.com</a>
                                     </li>
                                 </ul>
                             </div>
@@ -369,47 +371,23 @@ $data = mysqli_fetch_array($sql);
                             <!-- Begin Footer Block Area -->
                             <div class="col-lg-2 col-md-3 col-sm-6">
                                 <div class="footer-block">
-                                    <h3 class="footer-block-title">Product</h3>
-                                    <ul>
-                                        <li><a href="#">Prices drop</a></li>
-                                        <li><a href="#">New products</a></li>
-                                        <li><a href="#">Best sales</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                    </ul>
                                 </div>
                             </div>
                             <!-- Footer Block Area End Here -->
                             <!-- Begin Footer Block Area -->
                             <div class="col-lg-2 col-md-3 col-sm-6">
                                 <div class="footer-block">
-                                    <h3 class="footer-block-title">Our company</h3>
-                                    <ul>
-                                        <li><a href="#">Delivery</a></li>
-                                        <li><a href="#">Legal Notice</a></li>
-                                        <li><a href="#">About us</a></li>
-                                        <li><a href="#">Contact us</a></li>
-                                    </ul>
                                 </div>
                             </div>
                             <!-- Footer Block Area End Here -->
                             <!-- Begin Footer Block Area -->
                             <div class="col-lg-4">
                                 <div class="footer-block">
-                                    <h3 class="footer-block-title">Follow Us</h3>
+                                    <h3 class="footer-block-title">Ikuti Kami</h3>
                                     <ul class="social-link">
                                         <li class="twitter">
                                             <a href="https://twitter.com/" data-toggle="tooltip" target="_blank" title="Twitter">
                                                 <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="rss">
-                                            <a href="https://rss.com/" data-toggle="tooltip" target="_blank" title="RSS">
-                                                <i class="fa fa-rss"></i>
-                                            </a>
-                                        </li>
-                                        <li class="google-plus">
-                                            <a href="https://www.plus.google.com/discover" data-toggle="tooltip" target="_blank" title="Google Plus">
-                                                <i class="fa fa-google-plus"></i>
                                             </a>
                                         </li>
                                         <li class="facebook">
@@ -429,18 +407,6 @@ $data = mysqli_fetch_array($sql);
                                         </li>
                                     </ul>
                                 </div>
-                                <!-- Begin Footer Newsletter Area -->
-                                <div class="footer-newsletter">
-                                    <h4>Sign up to newsletter</h4>
-                                    <form action="#" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="footer-subscribe-form validate" target="_blank" novalidate>
-                                        <div id="mc_embed_signup_scroll">
-                                            <div id="mc-form" class="mc-form subscribe-form form-group">
-                                                <input id="mc-email" type="email" autocomplete="off" placeholder="Enter your email" />
-                                                <button class="btn" id="mc-submit">Subscribe</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
                                 <!-- Footer Newsletter Area End Here -->
                             </div>
                             <!-- Footer Block Area End Here -->
@@ -456,27 +422,6 @@ $data = mysqli_fetch_array($sql);
                         <div class="col-lg-12">
                             <!-- Begin Footer Links Area -->
                             <div class="footer-links">
-                                <ul>
-                                    <li><a href="#">Online Shopping</a></li>
-                                    <li><a href="#">Promotions</a></li>
-                                    <li><a href="#">My Orders</a></li>
-                                    <li><a href="#">Help</a></li>
-                                    <li><a href="#">Customer Service</a></li>
-                                    <li><a href="#">Support</a></li>
-                                    <li><a href="#">Most Populars</a></li>
-                                    <li><a href="#">New Arrivals</a></li>
-                                    <li><a href="#">Special Products</a></li>
-                                    <li><a href="#">Manufacturers</a></li>
-                                    <li><a href="#">Our Stores</a></li>
-                                    <li><a href="#">Shipping</a></li>
-                                    <li><a href="#">Payments</a></li>
-                                    <li><a href="#">Warantee</a></li>
-                                    <li><a href="#">Refunds</a></li>
-                                    <li><a href="#">Checkout</a></li>
-                                    <li><a href="#">Discount</a></li>
-                                    <li><a href="#">Refunds</a></li>
-                                    <li><a href="#">Policy Shipping</a></li>
-                                </ul>
                             </div>
                             <!-- Footer Links Area End Here -->
                             <!-- Begin Footer Payment Area -->
@@ -488,7 +433,7 @@ $data = mysqli_fetch_array($sql);
                             <!-- Footer Payment Area End Here -->
                             <!-- Begin Copyright Area -->
                             <div class="copyright text-center pt-25">
-                                <span><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></span>
+                                <span><a target="_blank" href="https://www.templateshub.net">Designed by: Dera Ardanik</a></span>
                             </div>
                             <!-- Copyright Area End Here -->
                         </div>
