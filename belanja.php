@@ -11,7 +11,7 @@ session_start();
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Belanja - TE Store</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initiakiiiiiil-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
     <!-- Material Design Iconic Font-V2.2.0 -->
@@ -86,21 +86,22 @@ session_start();
                         <!-- Begin Header Middle Right Area -->
                         <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                             <!-- Begin Header Middle Searchbox Area -->
-                            <form action="#" class="hm-searchbox">
-                                <select class="nice-select select-search-category">
-                                    <option value="0">All</option>
+                            <form action="" method="GET" class="hm-searchbox">
+                                <select name="kategori" class="nice-select select-search-category">
+                                    <option value="">All</option>
                                     <?php
                                     include 'admin/koneksi.php';
                                     $kategoriQuery = mysqli_query($koneksi, "SELECT * FROM tb_kategori ORDER BY nm_kategori ASC");
                                     while ($kategori = mysqli_fetch_assoc($kategoriQuery)) {
-                                        $selected = (isset($_GET['kategori']) && $GET['kategori'] == $kategori['id_kategori']) ? 'selected' : '';
+                                        $selected = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_kategori']) ? 'selected' : '';
                                         echo "<option value='{$kategori['id_kategori']}' $selected>{$kategori['nm_kategori']}</option>";
                                     }
                                     ?>
                                 </select>
-                                <input type="text" name="keyword" placeholder="Enter your search key..." value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>">
+                                <input type="text" name="keyword" placeholder="Enter your search key ..." value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>">
                                 <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
                             </form>
+
                             <!-- Header Middle Searchbox Area End Here -->
                             <!-- Begin Header Middle Right Area -->
                             <div class="header-middle-right">
@@ -117,12 +118,12 @@ session_start();
                                         </li>
                                     <?php
                                     } else {
-                                        // Ambil nama user dari session  atau database jika mau
+                                        // Ambil nama user dari session atau database jika mau
                                         $nama_user = $_SESSION['username']; // pastikan diset saat login
 
                                     ?>
                                         <!-- User Icon with Dropdown -->
-                                        <li class="hm_wishlist dropdown">
+                                        <li class="hm-wishlist dropdown">
                                             <a href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 <i class="fa fa-user"></i>
                                             </a>
@@ -141,7 +142,7 @@ session_start();
                                             </ul>
                                         </li>
 
-                                        <!-- Header Middle Wishlist Area End Here -->
+
                                         <!-- Mini Cart -->
                                         <li class="hm-minicart">
                                             <div class="hm-minicart-trigger">
@@ -180,10 +181,10 @@ session_start();
                                                 </ul>
                                                 <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
                                                 <div class="minicart-button">
-                                                    <a href="cart.php" class="li-button-dark li-button-fullwidth li-button-sm">
+                                                    <a href="cart.php" class="li-button li-button-dark li-button-fullwidth li-button-sm">
                                                         <span>View Full Cart</span>
                                                     </a>
-                                                    <a href="checkout.html" class="li-button li-button-fullwidth">
+                                                    <a href="checkout.html" class="li-button li-button-fullwidth li-button-sm">
                                                         <span>Checkout</span>
                                                     </a>
                                                 </div>
@@ -193,43 +194,37 @@ session_start();
                                 </ul>
                             </div>
                             <!-- Header Middle Right Area End Here -->
-                        </div>
-                        <!-- Header Middle Right Area End Here -->
-                    </div>
-                </div>
-            </div>
-            <!-- Header Middle Area End Here -->
-            <!-- Begin Header Bottom Area -->
-            <div class="header-bottom mb-0 header-sticky stick d-none d-lg-block d-xl-block">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- Begin Header Bottom Menu Area -->
-                            <div class="hb-menu">
-                                <nav>
-                                    <ul>
-                                        <li><a href="index.html">Beranda</a></li>
-                                        <li><a href="belanja.php">Belanja</a></li>
-                                        <li><a href="blog-left-sidebar.html">Hubungi Kami</a></li>
-                                    </ul>
-                                </nav>
+                            <!-- Begin Header Bottom Area -->
+                            <div class="header-bottom mb-0 header-sticky stick d-none d-lg-block d-xl-block">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <!-- Begin Header Bottom Menu Area -->
+                                            <div class="hb-menu">
+                                                <nav>
+                                                    <ul>
+                                                        <li><a href="index.html">Beranda</a></li>
+                                                        <li><a href="belanja.php">Belanja</a></li>
+                                                        <li><a href="blog-left-sidebar.html">Hubungi Kami</a></li>
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <!-- Header Bottom Menu Area End Here -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <!-- Header Bottom Menu Area End Here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Header Bottom Area End Here -->
-            <!-- Begin Mobile Menu Area -->
-            <div class="mobile-menu-area d-lg-none d-xl-none col-12">
-                <div class="container">
-                    <div class="row">
-                        <div class="mobile-menu">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Mobile Menu Area End Here -->
+                            <!-- Header Bottom Area End Here -->
+                            <!-- Begin Mobile Menu Area -->
+                            <div class="mobile-menu-area d-lg-none d-xl-none col-12">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="mobile-menu">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Mobile Menu Area End Here -->
         </header>
         <!-- Header Area End Here -->
         <!-- Begin Li's Breadcrumb Area -->
@@ -484,7 +479,7 @@ session_start();
                                                             <div class="product_desc_info">
                                                                 <div class="product-review">
                                                                     <h5 class="manufacturer">
-                                                                        <a href="#"><?= $data['nm_kategori'];?>
+                                                                        <a href="#"><?= $data['nm_kategori']; ?>
                                                                         </a>
                                                                     </h5>
                                                                 </div>
@@ -553,10 +548,10 @@ session_start();
                                 <h2>Filter</h2>
                             </div>
                             <!-- btn-clear-all start -->
-                            <button class="btn-clear-all mb-sm-30 mb-xs-30">Clear all</button>
+                            <button class="btn-clear-all mb-sm-30 mb-xs-30" onclick="window.location.href='<?= basename($_SERVER['PHP_SELF']) ?>'">Clear all</button>
                             <!-- btn-clear-all end -->
                             <!-- filter-sub-area start -->
-                            <div class="filter-sub-area">
+                            <div class="filter-sub-area pt-sm-10 pt-xs-10">
                                 <h5 class="filter-sub-titel">Kategori Produk</h5>
                                 <div class="categori-checkbox">
                                     <form action="" method="get">
@@ -568,289 +563,286 @@ session_start();
                                             while ($kategori = mysqli_fetch_assoc($kategoriQuery)) {
                                                 $checked = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_kategori']) ? 'checked' : '';
                                                 echo '<li>
-                                        <label>
-                                            <input type="radio" name="kategori" value="' . $kategori['id_kategori'] . '" ' . $checked . ' onchange="this.from.submit()">' . $kategori['nm_kategori'] . '
-                                            </label>
-                                            </li>';
+                    <label>
+                        <input type="radio" name="kategori" value="' . $kategori['id_kategori'] . '" ' . $checked . ' onchange="this.form.submit()">
+                        ' . $kategori['nm_kategori'] . '
+                    </label>
+                  </li>';
                                             }
                                             ?>
                                         </ul>
                                     </form>
 
-
-                                    </ul>
-                                    </form>
                                 </div>
                             </div>
                             <!-- filter-sub-area end -->
                         </div>
                         <!--sidebar-categores-box end  -->
-
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Content Wraper Area End Here -->
-        <!-- Begin Footer Area -->
-        <div class="footer">
-            <!-- Begin Footer Static Top Area -->
-            <div class="footer-static-top">
-                <div class="container">
-                    <!-- Begin Footer Shipping Area -->
-                    <div class="footer-shipping pt-60 pb-55 pb-xs-25">
-                        <div class="row">
-                            <!-- Begin Li's Shipping Inner Box Area -->
-                            <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
-                                <div class="li-shipping-inner-box">
-                                    <div class="shipping-icon">
-                                        <img src="images/shipping-icon/1.png" alt="Shipping Icon">
-                                    </div>
-                                    <div class="shipping-text">
-                                        <h2>Pengiriman Gratis</h2>
-                                        <p>Dan pengemblian gratis. Lihat dihalaman checkout untuk tanggal pengiriman.</p>
-                                    </div>
+    </div>
+    <!-- Content Wraper Area End Here -->
+    <!-- Begin Footer Area -->
+    <div class="footer">
+        <!-- Begin Footer Static Top Area -->
+        <div class="footer-static-top">
+            <div class="container">
+                <!-- Begin Footer Shipping Area -->
+                <div class="footer-shipping pt-60 pb-55 pb-xs-25">
+                    <div class="row">
+                        <!-- Begin Li's Shipping Inner Box Area -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
+                            <div class="li-shipping-inner-box">
+                                <div class="shipping-icon">
+                                    <img src="images/shipping-icon/1.png" alt="Shipping Icon">
+                                </div>
+                                <div class="shipping-text">
+                                    <h2>Pengiriman Gratis</h2>
+                                    <p>Dan pengemblian gratis. Lihat dihalaman checkout untuk tanggal pengiriman.</p>
                                 </div>
                             </div>
-                            <!-- Li's Shipping Inner Box Area End Here -->
-                            <!-- Begin Li's Shipping Inner Box Area -->
-                            <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
-                                <div class="li-shipping-inner-box">
-                                    <div class="shipping-icon">
-                                        <img src="images/shipping-icon/2.png" alt="Shipping Icon">
-                                    </div>
-                                    <div class="shipping-text">
-                                        <h2>Pembayaran Aman</h2>
-                                        <p>Bayar dengan metode pembayaran paling populer dan aman di dunia.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Li's Shipping Inner Box Area End Here -->
-                            <!-- Begin Li's Shipping Inner Box Area -->
-                            <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
-                                <div class="li-shipping-inner-box">
-                                    <div class="shipping-icon">
-                                        <img src="images/shipping-icon/3.png" alt="Shipping Icon">
-                                    </div>
-                                    <div class="shipping-text">
-                                        <h2>Belanja dengan Percaya Diri</h2>
-                                        <p>Perlindungan Pembeli kami melindungi pembelian Andna dari klik hingga pengiriman.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Li's Shipping Inner Box Area End Here -->
-                            <!-- Begin Li's Shipping Inner Box Area -->
-                            <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
-                                <div class="li-shipping-inner-box">
-                                    <div class="shipping-icon">
-                                        <img src="images/shipping-icon/4.png" alt="Shipping Icon">
-                                    </div>
-                                    <div class="shipping-text">
-                                        <h2>Pusat Bantuan 24/7</h2>
-                                        <p>Punya pertanyaan? Hubungi Spesialis kami atau chat secara online.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Li's Shipping Inner Box Area End Here -->
                         </div>
-                    </div>
-                    <!-- Footer Shipping Area End Here -->
-                </div>
-            </div>
-            <!-- Footer Static Top Area End Here -->
-            <!-- Begin Footer Static Middle Area -->
-            <div class="footer-static-middle">
-                <div class="container">
-                    <div class="footer-logo-wrap pt-50 pb-35">
-                        <div class="row">
-                            <!-- Begin Footer Logo Area -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="footer-logo">
-                                    <h1>TE-Store</h1>
-                                    <p class="info">
-                                        TE-Store hadir untuk memenuhi kebutuhan teknologi Anda. 
-                                        Tempat terbaik untuk menemukan berbagai produk elektronik berkualitas dengan harga bersahabat. 
-                                        Dari gadget terbaru hingga perangkat rumah tangga canggih, semua ada di sini!
-                                    </p>
+                        <!-- Li's Shipping Inner Box Area End Here -->
+                        <!-- Begin Li's Shipping Inner Box Area -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 pb-sm-55 pb-xs-55">
+                            <div class="li-shipping-inner-box">
+                                <div class="shipping-icon">
+                                    <img src="images/shipping-icon/2.png" alt="Shipping Icon">
                                 </div>
-                                <ul class="des">
-                                    <li>
-                                        <span>ALAMAT: </span>
-                                        Jl. Randu Blatung No.KM.5, Kec. Cepu, Kabupaten Blora, Jawa Tengah 58315
+                                <div class="shipping-text">
+                                    <h2>Pembayaran Aman</h2>
+                                    <p>Bayar dengan metode pembayaran paling populer dan aman di dunia.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Shipping Inner Box Area End Here -->
+                        <!-- Begin Li's Shipping Inner Box Area -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
+                            <div class="li-shipping-inner-box">
+                                <div class="shipping-icon">
+                                    <img src="images/shipping-icon/3.png" alt="Shipping Icon">
+                                </div>
+                                <div class="shipping-text">
+                                    <h2>Belanja dengan Percaya Diri</h2>
+                                    <p>Perlindungan Pembeli kami melindungi pembelian Andna dari klik hingga pengiriman.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Shipping Inner Box Area End Here -->
+                        <!-- Begin Li's Shipping Inner Box Area -->
+                        <div class="col-lg-3 col-md-6 col-sm-6 pb-xs-30">
+                            <div class="li-shipping-inner-box">
+                                <div class="shipping-icon">
+                                    <img src="images/shipping-icon/4.png" alt="Shipping Icon">
+                                </div>
+                                <div class="shipping-text">
+                                    <h2>Pusat Bantuan 24/7</h2>
+                                    <p>Punya pertanyaan? Hubungi Spesialis kami atau chat secara online.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Li's Shipping Inner Box Area End Here -->
+                    </div>
+                </div>
+                <!-- Footer Shipping Area End Here -->
+            </div>
+        </div>
+        <!-- Footer Static Top Area End Here -->
+        <!-- Begin Footer Static Middle Area -->
+        <div class="footer-static-middle">
+            <div class="container">
+                <div class="footer-logo-wrap pt-50 pb-35">
+                    <div class="row">
+                        <!-- Begin Footer Logo Area -->
+                        <div class="col-lg-4 col-md-6">
+                            <div class="footer-logo">
+                                <h1>TE-Store</h1>
+                                <p class="info">
+                                    TE-Store hadir untuk memenuhi kebutuhan teknologi Anda.
+                                    Tempat terbaik untuk menemukan berbagai produk elektronik berkualitas dengan harga bersahabat.
+                                    Dari gadget terbaru hingga perangkat rumah tangga canggih, semua ada di sini!
+                                </p>
+                            </div>
+                            <ul class="des">
+                                <li>
+                                    <span>ALAMAT: </span>
+                                    Jl. Randu Blatung No.KM.5, Kec. Cepu, Kabupaten Blora, Jawa Tengah 58315
+                                </li>
+                                <li>
+                                    <span>TELEPON: </span>
+                                    <a href="#">(+62) 882 0068 07145</a>
+                                </li>
+                                <li>
+                                    <span>EMAIL: </span>
+                                    <a href="mailto://info@testore.com">info@testore.com</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Footer Logo Area End Here -->
+                        <!-- Begin Footer Block Area -->
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <div class="footer-block">
+                            </div>
+                        </div>
+                        <!-- Footer Block Area End Here -->
+                        <!-- Begin Footer Block Area -->
+                        <div class="col-lg-2 col-md-3 col-sm-6">
+                            <div class="footer-block">
+                            </div>
+                        </div>
+                        <!-- Footer Block Area End Here -->
+                        <!-- Begin Footer Block Area -->
+                        <div class="col-lg-4">
+                            <div class="footer-block">
+                                <h3 class="footer-block-title">Ikuti Kami</h3>
+                                <ul class="social-link">
+                                    <li class="twitter">
+                                        <a href="https://twitter.com/" data-toggle="tooltip" target="_blank" title="Twitter">
+                                            <i class="fa fa-twitter"></i>
+                                        </a>
                                     </li>
-                                    <li>
-                                        <span>TELEPON: </span>
-                                        <a href="#">(+62) 882 0068 07145</a>
+                                    <li class="facebook">
+                                        <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank" title="Facebook">
+                                            <i class="fa fa-facebook"></i>
+                                        </a>
                                     </li>
-                                    <li>
-                                        <span>EMAIL: </span>
-                                        <a href="mailto://info@testore.com">info@testore.com</a>
+                                    <li class="youtube">
+                                        <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank" title="Youtube">
+                                            <i class="fa fa-youtube"></i>
+                                        </a>
+                                    </li>
+                                    <li class="instagram">
+                                        <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
+                                            <i class="fa fa-instagram"></i>
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Footer Logo Area End Here -->
-                            <!-- Begin Footer Block Area -->
-                            <div class="col-lg-2 col-md-3 col-sm-6">
-                                <div class="footer-block">
-                                </div>
+                            <!-- Begin Footer Newsletter Area -->
+                            <div class="footer-newsletter">
                             </div>
-                            <!-- Footer Block Area End Here -->
-                            <!-- Begin Footer Block Area -->
-                            <div class="col-lg-2 col-md-3 col-sm-6">
-                                <div class="footer-block">
-                                </div>
-                            </div>
-                            <!-- Footer Block Area End Here -->
-                            <!-- Begin Footer Block Area -->
-                            <div class="col-lg-4">
-                                <div class="footer-block">
-                                    <h3 class="footer-block-title">Ikuti Kami</h3>
-                                    <ul class="social-link">
-                                        <li class="twitter">
-                                            <a href="https://twitter.com/" data-toggle="tooltip" target="_blank" title="Twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
-                                        <li class="facebook">
-                                            <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank" title="Facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="youtube">
-                                            <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank" title="Youtube">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
-                                        <li class="instagram">
-                                            <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
-                                                <i class="fa fa-instagram"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <!-- Begin Footer Newsletter Area -->
-                                <div class="footer-newsletter">
-                                </div>
-                                <!-- Footer Newsletter Area End Here -->
-                            </div>
-                            <!-- Footer Block Area End Here -->
+                            <!-- Footer Newsletter Area End Here -->
                         </div>
+                        <!-- Footer Block Area End Here -->
                     </div>
                 </div>
             </div>
-            <!-- Footer Static Middle Area End Here -->
-            <!-- Begin Footer Static Bottom Area -->
-            <div class="footer-static-bottom pt-55 pb-55">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <!-- Begin Footer Links Area -->
-                            <div class="footer-links">
-                            </div>
-                            <!-- Footer Links Area End Here -->
-                            <!-- Begin Footer Payment Area -->
-                            <div class="copyright text-center">
-                                <a href="#">
-                                    <img src="images/payment/1.png" alt="">
-                                </a>
-                            </div>
-                            <!-- Footer Payment Area End Here -->
-                            <!-- Begin Copyright Area -->
-                            <div class="copyright text-center pt-25">
-                                <span><a target="_blank" href="https://www.templateshub.net">Designed by: Dera Ardanik</a></span>
-                            </div>
-                            <!-- Copyright Area End Here -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Footer Static Bottom Area End Here -->
         </div>
-        <!-- Footer Area End Here -->
-        <!-- Begin Quick View | Modal Area -->
-        <div class="modal fade modal-wrapper" id="exampleModalCenter">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <div class="modal-inner-area row">
-                            <div class="col-lg-5 col-md-6 col-sm-6">
-                                <!-- Product Details Left -->
-                                <div class="product-details-left">
-                                    <div class="product-details-images slider-navigation-1">
-                                        <div class="lg-image">
-                                            <img src="images/product/large-size/1.jpg" alt="product image">
-                                        </div>
-                                        <div class="lg-image">
-                                            <img src="images/product/large-size/2.jpg" alt="product image">
-                                        </div>
-                                        <div class="lg-image">
-                                            <img src="images/product/large-size/3.jpg" alt="product image">
-                                        </div>
-                                        <div class="lg-image">
-                                            <img src="images/product/large-size/4.jpg" alt="product image">
-                                        </div>
-                                        <div class="lg-image">
-                                            <img src="images/product/large-size/5.jpg" alt="product image">
-                                        </div>
-                                        <div class="lg-image">
-                                            <img src="images/product/large-size/6.jpg" alt="product image">
-                                        </div>
+        <!-- Footer Static Middle Area End Here -->
+        <!-- Begin Footer Static Bottom Area -->
+        <div class="footer-static-bottom pt-55 pb-55">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- Begin Footer Links Area -->
+                        <div class="footer-links">
+                        </div>
+                        <!-- Footer Links Area End Here -->
+                        <!-- Begin Footer Payment Area -->
+                        <div class="copyright text-center">
+                            <a href="#">
+                                <img src="images/payment/1.png" alt="">
+                            </a>
+                        </div>
+                        <!-- Footer Payment Area End Here -->
+                        <!-- Begin Copyright Area -->
+                        <div class="copyright text-center pt-25">
+                            <span><a target="_blank" href="https://www.templateshub.net">Designed by: Dera Ardanik</a></span>
+                        </div>
+                        <!-- Copyright Area End Here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Static Bottom Area End Here -->
+    </div>
+    <!-- Footer Area End Here -->
+    <!-- Begin Quick View | Modal Area -->
+    <div class="modal fade modal-wrapper" id="exampleModalCenter">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <div class="modal-inner-area row">
+                        <div class="col-lg-5 col-md-6 col-sm-6">
+                            <!-- Product Details Left -->
+                            <div class="product-details-left">
+                                <div class="product-details-images slider-navigation-1">
+                                    <div class="lg-image">
+                                        <img src="images/product/large-size/1.jpg" alt="product image">
                                     </div>
-                                    <div class="product-details-thumbs slider-thumbs-1">
-                                        <div class="sm-image"><img src="images/product/small-size/1.jpg" alt="product image thumb"></div>
-                                        <div class="sm-image"><img src="images/product/small-size/2.jpg" alt="product image thumb"></div>
-                                        <div class="sm-image"><img src="images/product/small-size/3.jpg" alt="product image thumb"></div>
-                                        <div class="sm-image"><img src="images/product/small-size/4.jpg" alt="product image thumb"></div>
-                                        <div class="sm-image"><img src="images/product/small-size/5.jpg" alt="product image thumb"></div>
-                                        <div class="sm-image"><img src="images/product/small-size/6.jpg" alt="product image thumb"></div>
+                                    <div class="lg-image">
+                                        <img src="images/product/large-size/2.jpg" alt="product image">
+                                    </div>
+                                    <div class="lg-image">
+                                        <img src="images/product/large-size/3.jpg" alt="product image">
+                                    </div>
+                                    <div class="lg-image">
+                                        <img src="images/product/large-size/4.jpg" alt="product image">
+                                    </div>
+                                    <div class="lg-image">
+                                        <img src="images/product/large-size/5.jpg" alt="product image">
+                                    </div>
+                                    <div class="lg-image">
+                                        <img src="images/product/large-size/6.jpg" alt="product image">
                                     </div>
                                 </div>
-                                <!--// Product Details Left -->
+                                <div class="product-details-thumbs slider-thumbs-1">
+                                    <div class="sm-image"><img src="images/product/small-size/1.jpg" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="images/product/small-size/2.jpg" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="images/product/small-size/3.jpg" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="images/product/small-size/4.jpg" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="images/product/small-size/5.jpg" alt="product image thumb"></div>
+                                    <div class="sm-image"><img src="images/product/small-size/6.jpg" alt="product image thumb"></div>
+                                </div>
                             </div>
+                            <!--// Product Details Left -->
+                        </div>
 
-                            <div class="col-lg-7 col-md-6 col-sm-6">
-                                <div class="product-details-view-content pt-60">
-                                    <div class="product-info">
-                                        <h2>"modal-nama-produk"></h2>
-                                        <span class="product-details-ref" id="modal-kategori">Kategori</span>
-                                        <div class="price-box pt-20">
-                                            <span class="new-price new-price-2" id="modal-harga">Rp0</span>
-                                        </div>
-                                        <div class="produck-desc">
-                                            <p id="modal-desc"></p>
-                                            <p><strong>Stok tersedia:</strong> <span id="modal-stok">0</span> unit</p> <!-- Tambahkan -->
-                                        </div>
+                        <div class="col-lg-7 col-md-6 col-sm-6">
+                            <div class="product-details-view-content pt-60">
+                                <div class="product-info">
+                                    <h2>"modal-nama-produk"></h2>
+                                    <span class="product-details-ref" id="modal-kategori">Kategori</span>
+                                    <div class="price-box pt-20">
+                                        <span class="new-price new-price-2" id="modal-harga">Rp0</span>
+                                    </div>
+                                    <div class="produck-desc">
+                                        <p id="modal-desc"></p>
+                                        <p><strong>Stok tersedia:</strong> <span id="modal-stok">0</span> unit</p> <!-- Tambahkan -->
+                                    </div>
 
-                                        <div class="single-add-to-cart">
-                                            <form action="tambah_ke_keranjang.php" method="POST" class="cart-quantity">
-                                                <input type="hidden" name="id_produk" id="input-id-produk">
-                                                <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
-                                                <input type="hidden" name="harga" id="input-harga">
-                                                <input type="hiddeb" name="redirect_url" value="belanja.php">
+                                    <div class="single-add-to-cart">
+                                        <form action="tambah_ke_keranjang.php" method="POST" class="cart-quantity">
+                                            <input type="hidden" name="id_produk" id="input-id-produk">
+                                            <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
+                                            <input type="hidden" name="harga" id="input-harga">
+                                            <input type="hiddeb" name="redirect_url" value="belanja.php">
 
-                                                <div class="quantity">
-                                                    <label>Jumlah</label>
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" name="jumlah" id="input-jumlah" value="1" type="text">
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div>
+                                            <div class="quantity">
+                                                <label>Jumlah</label>
+                                                <div class="cart-plus-minus">
+                                                    <input class="cart-plus-minus-box" name="jumlah" id="input-jumlah" value="1" type="text">
+                                                    <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                    <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
                                                 </div>
-                                                <button class="add-to-cart" type="submit">Beli Sekarang</button>
-                                            </form>
-                                        </div>
-                                        <div class="product-additional-info pt-25">
-                                            <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
-                                            <div class="product-social-sharing pt-25">
-                                                <ul>
-                                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-                                                    <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
-                                                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
-                                                </ul>
                                             </div>
+                                            <button class="add-to-cart" type="submit">Beli Sekarang</button>
+                                        </form>
+                                    </div>
+                                    <div class="product-additional-info pt-25">
+                                        <a class="wishlist-btn" href="wishlist.html"><i class="fa fa-heart-o"></i>Add to wishlist</a>
+                                        <div class="product-social-sharing pt-25">
+                                            <ul>
+                                                <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                                <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                                                <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
+                                                <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -860,7 +852,8 @@ session_start();
                 </div>
             </div>
         </div>
-        <!-- Quick View | Modal Area End Here -->
+    </div>
+    <!-- Quick View | Modal Area End Here -->
     </div>
     <!-- Body Wrapper End Here -->
     <!-- jQuery-V1.12.4 -->
