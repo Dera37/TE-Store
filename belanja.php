@@ -320,7 +320,7 @@ session_start();
                                                     $orderBy = 'ORDER BY p.harga DESC';
                                                     break;
                                                 default;
-                                                    $orderBy = 'ORDER BY p.id_harga DESC'; // default terbaru
+                                                    $orderBy = 'ORDER BY p.harga DESC'; // default terbaru
                                                     break;
                                             }
 
@@ -351,7 +351,7 @@ session_start();
                                                 $sql .= " AND p.id_kategori= '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
                                             }
                                             if (!empty($keyword)) {
-                                                $sql .= "AND p.id_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
+                                                $sql .= " AND p.id_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
                                             }
 
                                             $sql .= " $orderBy LIMIT $limit OFFSET $offset";
@@ -380,7 +380,6 @@ session_start();
                                                                         <?= $data['nm_produk']; ?>
                                                                     </a></h4>
                                                                 <div class="price-box">
-                                                                    <span class="new-price">Rp<?= number_format($data['harga'], 0, ',', '.'); ?></span>
                                                                     <span class="new-price">Rp<?= number_format($data['harga'], 0, ',', '.'); ?></span>
                                                                 </div>
                                                             </div>
@@ -507,7 +506,7 @@ session_start();
                                                                 </li>
                                                                 <li>
                                                                     <a href="#" class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" data-id="<?= $data['id_produk']; ?>">
-                                                                        <i class="fa fa-eye"></i>Lipat Cepat
+                                                                        <i class="fa fa-eye"></i>Lihat Cepat
                                                                     </a>
                                                                 </li>
                                                             </ul>
