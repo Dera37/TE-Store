@@ -1,15 +1,12 @@
-<?php
-session_start();
-?>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
-<!-- shop-list31:48-->
+<!-- single-product31:30-->
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Belanja - TE Store</title>
+    <title>Detail Produk - TE-Store</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -46,20 +43,6 @@ session_start();
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Modernizr js -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-    <style>
-        .nice-select .list {
-            max-height: none !important;
-            /* biar tidak terbatas tingginya */
-            overflow: visible !important;
-        }
-
-        .nice-select .list {
-            max-height: 300px !important;
-            overflow-y: auto !important;
-        }
-    </style>
 </head>
 
 <body>
@@ -87,24 +70,6 @@ session_start();
                         <!-- Header Logo Area End Here -->
                         <!-- Begin Header Middle Right Area -->
                         <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
-                            <!-- Begin Header Middle Searchbox Area -->
-                            <form action="" method="GET" class="hm-searchbox">
-                                <select name="kategori" class="nice-select select-search-category">
-                                    <option value="">All</option>
-                                    <?php
-                                    include 'admin/koneksi.php';
-                                    $kategoriQuery = mysqli_query($koneksi, "SELECT * FROM tb_kategori ORDER BY nm_kategori ASC");
-                                    while ($kategori = mysqli_fetch_assoc($kategoriQuery)) {
-                                        $selected = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_kategori']) ? 'selected' : '';
-                                        echo "<option value='{$kategori['id_kategori']}' $selected>{$kategori['nm_kategori']}</option>";
-                                    }
-                                    ?>
-                                </select>
-                                <input type="text" name="keyword" placeholder="Enter your search key ..." value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>">
-                                <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-
-                            <!-- Header Middle Searchbox Area End Here -->
                             <!-- Begin Header Middle Right Area -->
                             <div class="header-middle-right">
                                 <ul class="hm-menu">
@@ -240,366 +205,175 @@ session_start();
             <div class="container">
                 <div class="breadcrumb-content">
                     <ul>
-                        <li><a href="index.php">Beranda</a></li>
-                        <li class="active">Belanja</li>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li class="active">Detail Produk</li>
                     </ul>
                 </div>
             </div>
         </div>
         <!-- Li's Breadcrumb Area End Here -->
-        <!-- Begin Li's Content Wraper Area -->
-        <div class="content-wraper pt-60 pb-60">
+        <!-- content-wraper start -->
+        <div class="content-wraper">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 order-1 order-lg-2">
-                        <!-- Begin Li's Banner Area -->
-                        <div class="single-banner shop-page-banner">
-                            <a href="#">
-                                <img src="images/bg-banner/2.jpg" alt="Li's Static Banner">
-                            </a>
-                        </div>
-                        <!-- Li's Banner Area End Here -->
-                        <!-- shop-top-bar start -->
-                        <div class="shop-top-bar mt-30">
-                            <div class="shop-bar-inner">
-                                <div class="product-view-mode">
-                                    <!-- shop-item-filter-list start -->
-                                    <ul class="nav shop-item-filter-list" role="tablist">
-                                        <li role="presentation"><a data-toggle="tab" role="tab" aria-controls="grid-view" href="#grid-view"><i class="fa fa-th"></i></a></li>
-                                        <li class="active" role="presentation"><a aria-selected="true" class="active show" data-toggle="tab" role="tab" aria-controls="list-view" href="#list-view"><i class="fa fa-th-list"></i></a></li>
-                                    </ul>
-                                    <!-- shop-item-filter-list end -->
+                <div class="row single-product-area">
+                    <div class="col-lg-5 col-md-6">
+                        <!-- Product Details Left -->
+                        <div class="product-details-left">
+                            <div class="product-details-images slider-navigation-1">
+                                <div class="lg-image">
+                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/1.jpg" data-gall="myGallery">
+                                        <img src="images/product/large-size/1.jpg" alt="product image">
+                                    </a>
                                 </div>
-                                <?php
-                                $page     = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-                                $limit    = 12;
-                                $offset   = ($page - 1) * $limit;
-                                $start = $offset + 1;
-                                // Hitung total data
-                                $countSql = "
-                                SELECT COUNT(*) AS total 
-                                FROM tb_produk p 
-                                JOIN tb_kategori k ON p.id_kategori = k.id_kategori 
-                                WHERE 1=1
-                            ";
-                                $countQuery = mysqli_query($koneksi, $countSql);
-                                $totalData = mysqli_fetch_assoc($countQuery)['total'];
-                                $end = min($offset + $limit, $totalData);
-                                ?>
-                                <span class="mt-1">Menampilkan <?= $start ?> hingga <?= $end ?> dari <?= $totalData ?> produk</span>
-                            </div>
-                            <!-- product-select-box start -->
-                            <!-- product-select-box end -->
-                        </div>
-                        <!-- shop-top-bar end -->
-                        <!-- shop-products-wrapper start -->
-                        <div class="shop-products-wrapper">
-                            <div class="tab-content">
-                                <div id="grid-view" class="tab-pane fade" role="tabpanel">
-                                    <div class="product-area shop-product-area">
-                                        <div class="row">
-                                            <?php
-                                            include 'admin/koneksi.php';
-
-                                            // Ambil parameter pencarian dan sorting
-                                            $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';
-                                            $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
-                                            $page     = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-                                            $limit    = 12;
-                                            $offset   = ($page - 1) * $limit;
-                                            $sort     = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-
-                                            // Tentukan urutan sorting
-                                            switch ($sort) {
-                                                case 'name-asc':
-                                                    $orderBy = 'ORDER BY p.nm_produk ASC';
-                                                    break;
-                                                case 'name-desc':
-                                                    $orderBy = 'ORDER BY p.nm_produk DESC';
-                                                    break;
-                                                case 'price-asc':
-                                                    $orderBy = 'ORDER BY p.harga ASC';
-                                                    break;
-                                                case 'price-desc':
-                                                    $orderBy = 'ORDER BY p.harga DESC';
-                                                    break;
-                                                default:
-                                                    $orderBy = 'ORDER BY p.id_produk DESC'; // default terbaru
-                                                    break;
-                                            }
-
-                                            // Hitung total data
-                                            $countSql = "
-    SELECT COUNT(*) AS total 
-    FROM tb_produk p 
-    JOIN tb_kategori k ON p.id_kategori = k.id_kategori 
-    WHERE 1=1
-";
-
-                                            if (!empty($kategori)) {
-                                                $countSql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
-                                            }
-                                            if (!empty($keyword)) {
-                                                $countSql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
-                                            }
-
-                                            $countQuery = mysqli_query($koneksi, $countSql);
-                                            $totalData = mysqli_fetch_assoc($countQuery)['total'];
-                                            $totalPages = ceil($totalData / $limit);
-
-                                            // Ambil data produk
-                                            $sql = "
-    SELECT p.*, k.nm_kategori 
-    FROM tb_produk p 
-    JOIN tb_kategori k ON p.id_kategori = k.id_kategori 
-    WHERE 1=1
-";
-
-                                            if (!empty($kategori)) {
-                                                $sql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
-                                            }
-                                            if (!empty($keyword)) {
-                                                $sql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
-                                            }
-
-                                            $sql .= " $orderBy LIMIT $limit OFFSET $offset";
-
-                                            $query = mysqli_query($koneksi, $sql);
-                                            while ($data = mysqli_fetch_assoc($query)) {
-                                            ?>
-
-                                                <div class="col-lg-4 col-md-4 col-sm-6 mt-40">
-                                                    <div class="single-product-wrap">
-                                                        <div class="product-image">
-                                                            <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">
-                                                                <img src="admin/produk_img/<?= $data['gambar']; ?>" alt="<?= $data['nm_produk']; ?>" width="300" height="300">
-                                                            </a>
-                                                        </div>
-                                                        <div class="product_desc">
-                                                            <div class="product_desc_info">
-                                                                <div class="product-review">
-                                                                    <h5 class="manufacturer">
-                                                                        <a href="#"><?= $data['nm_kategori']; ?></a>
-                                                                    </h5>
-                                                                </div>
-                                                                <h4>
-                                                                    <a class="product_name" href="detail_produk.php?id=<?= $data['id_produk']; ?>">
-                                                                        <?= $data['nm_produk']; ?>
-                                                                    </a>
-                                                                </h4>
-                                                                <div class="price-box">
-                                                                    <span class="new-price">Rp<?= number_format($data['harga'], 0, ',', '.'); ?></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="add-actions">
-                                                                <ul class="add-actions-link">
-                                                                    <li class="add-cart active">
-                                                                        <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">Beli Sekarang</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="#" class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" data-id="<?= $data['id_produk']; ?>">
-                                                                            <i class="fa fa-eye"></i>
-                                                                        </a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
+                                <div class="lg-image">
+                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/2.jpg" data-gall="myGallery">
+                                        <img src="images/product/large-size/2.jpg" alt="product image">
+                                    </a>
                                 </div>
-
-                                <div id="list-view" class="tab-pane fade product-list-view active show" role="tabpanel">
-                                    <div class="row">
-                                        <div class="col">
-                                            <?php
-                                            include 'admin/koneksi.php';
-
-                                            // Ambil parameter pencarian dan sorting
-                                            $kategori = isset($_GET['kategori']) ? $_GET['kategori'] : '';
-                                            $keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
-                                            $page     = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-                                            $limit    = 12;
-                                            $offset   = ($page - 1) * $limit;
-                                            $sort     = isset($_GET['sort']) ? $_GET['sort'] : 'default';
-
-                                            // Tentukan urutan sorting
-                                            switch ($sort) {
-                                                case 'name-asc':
-                                                    $orderBy = 'ORDER BY p.nm_produk ASC';
-                                                    break;
-                                                case 'name-desc':
-                                                    $orderBy = 'ORDER BY p.nm_produk DESC';
-                                                    break;
-                                                case 'price-asc':
-                                                    $orderBy = 'ORDER BY p.harga ASC';
-                                                    break;
-                                                case 'price-desc':
-                                                    $orderBy = 'ORDER BY p.harga DESC';
-                                                    break;
-                                                default:
-                                                    $orderBy = 'ORDER BY p.id_produk DESC'; // default terbaru
-                                                    break;
-                                            }
-
-                                            // Hitung total data
-                                            $countSql = "
-    SELECT COUNT(*) AS total 
-    FROM tb_produk p 
-    JOIN tb_kategori k ON p.id_kategori = k.id_kategori 
-    WHERE 1=1
-";
-
-                                            if (!empty($kategori)) {
-                                                $countSql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
-                                            }
-                                            if (!empty($keyword)) {
-                                                $countSql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
-                                            }
-
-                                            $countQuery = mysqli_query($koneksi, $countSql);
-                                            $totalData = mysqli_fetch_assoc($countQuery)['total'];
-                                            $totalPages = ceil($totalData / $limit);
-
-                                            // Ambil data produk
-                                            $sql = "
-    SELECT p.*, k.nm_kategori 
-    FROM tb_produk p 
-    JOIN tb_kategori k ON p.id_kategori = k.id_kategori 
-    WHERE 1=1
-";
-
-                                            if (!empty($kategori)) {
-                                                $sql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
-                                            }
-                                            if (!empty($keyword)) {
-                                                $sql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
-                                            }
-
-                                            $sql .= " $orderBy LIMIT $limit OFFSET $offset";
-
-                                            $query = mysqli_query($koneksi, $sql);
-                                            while ($data = mysqli_fetch_assoc($query)) {
-                                            ?>
-
-                                                <div class="row product-layout-list">
-                                                    <div class="col-lg-3 col-md-5">
-                                                        <div class="product-image">
-                                                            <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">
-                                                                <img src="admin/produk_img/<?= $data['gambar']; ?>" alt="<?= $data['nm_produk']; ?>" width="300" height="300">
-                                                            </a>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-5 col-md-7">
-                                                        <div class="product_desc">
-                                                            <div class="product_desc_info">
-                                                                <div class="product-review">
-                                                                    <h5 class="manufacturer">
-                                                                        <a href="#"><?= $data['nm_kategori']; ?></a>
-                                                                    </h5>
-                                                                </div>
-                                                                <h4><a class="product_name" href="detail_produk.php?id=<?= $data['id_produk']; ?>">
-                                                                        <?= $data['nm_produk']; ?>
-                                                                    </a></h4>
-                                                                <div class="price-box">
-                                                                    <span class="new-price">Rp<?= number_format($data['harga'], 0, ',', '.'); ?></span>
-                                                                </div>
-                                                                <p><?= substr($data['desk'], 0, 150); ?>...</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4">
-                                                        <div class="shop-add-action mb-xs-30">
-                                                            <ul class="add-actions-link">
-                                                                <li class="add-cart">
-                                                                    <a href="detail_produk.php?id=<?= $data['id_produk']; ?>">Beli Sekarang</a>
-                                                                </li>
-                                                                <li>
-                                                                    <a href="#" class="quick-view" data-toggle="modal" data-target="#exampleModalCenter" data-id="<?= $data['id_produk']; ?>">
-                                                                        <i class="fa fa-eye"></i>Lihat Cepat
-                                                                    </a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <?php } ?>
-
-                                        </div>
-                                    </div>
+                                <div class="lg-image">
+                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/3.jpg" data-gall="myGallery">
+                                        <img src="images/product/large-size/3.jpg" alt="product image">
+                                    </a>
                                 </div>
-                                <div class="paginatoin-area">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6">
-                                            <p>Menampilkan <?= min($limit, $totalData - $offset) ?> dari <?= $totalData ?> produk</p>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6">
-                                            <ul class="pagination-box">
-                                                <?php if ($page > 1) : ?>
-                                                    <li><a href="?page=<?= $page - 1 ?>&kategori=<?= $kategori ?>&keyword=<?= $keyword ?>" class="Previous"><i class="fa fa-chevron-left"></i> Sebelumnya</a></li>
-                                                <?php endif; ?>
-
-                                                <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
-                                                    <li class="<?= ($i == $page) ? 'active' : '' ?>">
-                                                        <a href="?page=<?= $i ?>&kategori=<?= $kategori ?>&keyword=<?= $keyword ?>"><?= $i ?></a>
-                                                    </li>
-                                                <?php endfor; ?>
-
-                                                <?php if ($page < $totalPages) : ?>
-                                                    <li><a href="?page=<?= $page + 1 ?>&kategori=<?= $kategori ?>&keyword=<?= $keyword ?>" class="Next">Berikutnya <i class="fa fa-chevron-right"></i></a></li>
-                                                <?php endif; ?>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <div class="lg-image">
+                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/4.jpg" data-gall="myGallery">
+                                        <img src="images/product/large-size/4.jpg" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="lg-image">
+                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/5.jpg" data-gall="myGallery">
+                                        <img src="images/product/large-size/5.jpg" alt="product image">
+                                    </a>
+                                </div>
+                                <div class="lg-image">
+                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/6.jpg" data-gall="myGallery">
+                                        <img src="images/product/large-size/6.jpg" alt="product image">
+                                    </a>
                                 </div>
                             </div>
                         </div>
-                        <!-- shop-products-wrapper end -->
+                        <!--// Product Details Left -->
                     </div>
-                    <div class="col-lg-3 order-2 order-lg-1">
-                        <!--sidebar-categores-box start  -->
-                        <div class="sidebar-categores-box">
-                            <div class="sidebar-title">
-                                <h2>Filter</h2>
-                            </div>
-                            <!-- btn-clear-all start -->
-                            <button class="btn-clear-all mb-sm-30 mb-xs-30" onclick="window.location.href='<?= basename($_SERVER['PHP_SELF']) ?>'">Clear all</button>
-                            <!-- btn-clear-all end -->
-                            <!-- filter-sub-area start -->
-                            <div class="filter-sub-area pt-sm-10 pt-xs-10">
-                                <h5 class="filter-sub-titel">Kategori Produk</h5>
-                                <div class="categori-checkbox">
-                                    <form action="" method="get">
-                                        <ul>
-                                            <?php
-                                            include 'admin/koneksi.php';
-                                            $kategoriQuery = mysqli_query($koneksi, "SELECT * FROM tb_kategori");
 
-                                            while ($kategori = mysqli_fetch_assoc($kategoriQuery)) {
-                                                $checked = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_kategori']) ? 'checked' : '';
-                                                echo '<li>
-                    <label>
-                        <input type="radio" name="kategori" value="' . $kategori['id_kategori'] . '" ' . $checked . ' onchange="this.form.submit()">
-                        ' . $kategori['nm_kategori'] . '
-                    </label>
-                  </li>';
-                                            }
-                                            ?>
-                                        </ul>
+                    <div class="col-lg-7 col-md-6">
+                        <div class="product-details-view-content pt-60">
+                            <div class="product-info">
+                                <h2>Toshiba 24 inchi</h2>
+                                <span class="product-details-ref">Kategori: Televisi</span>
+                                <div class="price-box pt-20">
+                                    <span class="new-price new-price-2">Rp. 5.999.000</span>
+                                </div>
+                                <div class="product-desc">
+                                    <p>
+                                        <span>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
+                                        </span>
+                                    <p><strong>Stok Tersedia:</strong> 3 unit</p>
+                                    </p>
+                                </div>
+                                <div class="single-add-to-cart">
+                                    <form action="#" class="cart-quantity">
+                                        <div class="quantity">
+                                            <label>Jumlah</label>
+                                            <div class="cart-plus-minus">
+                                                <input class="cart-plus-minus-box" value="1" type="text">
+                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                            </div>
+                                        </div>
+                                        <button class="add-to-cart" type="submit">Beli Sekarang</button>
                                     </form>
-
+                                </div>
+                                <div class="product-additional-info pt-25">
+                                    <div class="product-social-sharing pt-25">
+                                        <ul>
+                                            <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
+                                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
+                                            <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
+                                            <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                            <!-- filter-sub-area end -->
                         </div>
-                        <!--sidebar-categores-box end  -->
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Content Wraper Area End Here -->
+        <!-- content-wraper end -->
+        <!-- Begin Product Area -->
+        <div class="product-area pt-35">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="li-product-tab">
+                            <ul class="nav li-product-menu">
+                                <li><a class="active" data-toggle="tab" href="#description"><span>Deskripsi</span></a></li>
+                            </ul>
+                        </div>
+                        <!-- Begin Li's Tab Menu Content Area -->
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div id="description" class="tab-pane active show" role="tabpanel">
+                        <div class="product-description">
+                            <span>The best is yet to come! Give your walls a voice with a framed poster. This aesthethic, optimistic poster will look great in your desk or in an open-space office. Painted wooden frame with passe-partout for more depth.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Product Area End Here -->
+        <!-- Begin Li's Laptop Product Area -->
+        <section class="product-area li-laptop-product pt-30 pb-50">
+            <div class="container">
+                <div class="row">
+                    <!-- Begin Li's Section Area -->
+                    <div class="col-lg-12">
+                        <div class="li-section-title">
+                            <h2>
+                                <span>Produk Lainnya</span>
+                            </h2>
+                        </div>
+                        <div class="row">
+                            <div class="product-active owl-carousel">
+                                <div class="col-lg-12">
+                                    <!-- single-product-wrap start -->
+                                    <div class="single-product-wrap">
+                                        <div class="product-image">
+                                            <a href="single-product.html">
+                                                <img src="images/product/large-size/1.jpg" alt="Li's Product Image">
+                                            </a>
+                                        </div>
+                                        <div class="product_desc">
+                                            <div class="product_desc_info">
+                                                <div class="product-review">
+                                                    <h5 class="manufacturer">
+                                                        <a href="product-details.html">Televisi</a>
+                                                    </h5>
+                                                </div>
+                                                <h4><a class="product_name" href="single-product.html">Toshiba 24 inchi</a></h4>
+                                                <div class="price-box">
+                                                    <span class="new-price">Rp. 5.999.000</span>
+                                                </div>
+                                            </div>
+                                            <div class="add-actions">
+                                                <ul class="add-actions-link">
+                                                    <li class="add-cart active"><a href="#">Beli Sekarang</a></li>
+                                                    <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- single-product-wrap end -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Li's Section Area End Here -->
+                </div>
+            </div>
+        </section>
+        <!-- Li's Laptop Product Area End Here -->
         <!-- Begin Footer Area -->
         <div class="footer">
             <!-- Begin Footer Static Top Area -->
@@ -928,6 +702,6 @@ session_start();
     <script src="js/main.js"></script>
 </body>
 
-<!-- shop-list31:48-->
+<!-- single-product31:32-->
 
 </html>
