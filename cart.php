@@ -500,7 +500,7 @@
 
                                     // Insert ke tb_jualdtl
                                     foreach ($items as  $item) {
-                                        $query_dtl = mysqli_query($koneksi. "INSERT INTO tb_jualdtl (id_jual, id_produk, qty, harga) 
+                                        $query_dtl = mysqli_query($koneksi, "INSERT INTO tb_jualdtl (id_jual, id_produk, qty, harga) 
                                         VALUES ('$next_id', '{$item['id_produk']}', '{$item['qty']}', '{$item['harga']}')");
 
                                         if (!$query_dtl) {
@@ -558,45 +558,28 @@
                                             if (mysqli_num_rows($query_pesanan) > 0) {
                                                 while ($row = mysqli_fetch_assoc($query_pesanan)) {
                                                     $subtotal = $row['qty'] * $row['harga'];
-                                                    echo
+                                                    echo "<tr>
+                                                <td class='li-product-remove'><a href='hapus_pesanan.php?id={$row['id_pesanan']}' onclick='return confirm(\"Yakin hapus item ini?\")'>
+                                                <i class='fa fa-times'></i></a></td>
+                                                <td class='li-product-thumbnail'> 
+                                                <a href='#'><img src='admin/produk_img/{$row['gambar']}' alt='{$row['nm_produk']}' width='70'></a></td>
+                                                <td class='li-product-name'><a href='#'>{$row['nm_produk']}</a></td>
+                                                <td class='li-product-price'><span class='amount'>Rp" . number_format($row['harga'], 0, ',', '.') . "</span></td>
+                                                <td class='quantity'>
+                                                    <label>Quantity</label>
+                                                    <div class='cart-plus-minus'>
+                                                        <input class='cart-plus-minus-box' value='{$row['qty']} type='text' readonly>
+                                                        <div class='dec qtybutton'><i class='fa fa-angle-down'></i></div>
+                                                        <div class='inc qtybutton'><i class='fa fa-angle-up'></i></div>
+                                                    </div>
+                                                </td>
+                                                <td class='product-subtotal'><span class='amount'>Rp" . number_format($subtotal, 0, ',', '.') . "</span></td>
+                                            </tr>";
                                                 }
+                                            } else {
+                                                echo "<tr><td colspan='6'>Keranjang kosong.</td><?tr>";
                                             }
-                                            <tr>
-                                                <td class="li-product-remove">
-                                                <a href="hapus_pesan.php?id=($row['id_pesanan']}' onclick='return confrim(\"Yakin hapus item ini?\")'>
-                                                <i class="fa fa-times"></i>
-                                                </a>
-                                                </td>
-                                                <td class="li-product-thumbnail">
-                                                <a href='#'><img src='admin/produk_img/{$row['gambar']}' alt='{$row['nm_produk']}' width='70'></a>
-                                                </td>
-                                                <td class="li-product-name"><a href='#'>{$row['nm_produk']}</a></td>
-                                                <td class="li-product-price"><span class="amount">Rp" . number_format($row['harga'], 0, ',', '.') . "</span></td>
-                                                <td class="quantity">
-                                                    <label>Quantity</label>
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" value="{$row['qty']}" type="text" readonly>
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal"><span class="amount">$70.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="images/product/small-size/6.jpg" alt="Li's Product Image"></a></td>
-                                                <td class="li-product-name"><a href="#">Mug Today is a good day</a></td>
-                                                <td class="li-product-price"><span class="amount">$71.80</span></td>
-                                                <td class="quantity">
-                                                    <label>Quantity</label>
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" value="1" type="text">
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal"><span class="amount">$60.50</span></td>
-                                            </tr>
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -616,12 +599,34 @@
                                 <div class="row">
                                     <div class="col-md-5 ml-auto">
                                         <div class="cart-page-total">
-                                            <h2>Cart totals</h2>
+                                            <h2>Total Pesanan</h2>
+                                            <?php
+                                            // Hitung ulang subtotal
+                                            $subtotal = 0;
+                                            mysqli_data_seek($query_pesanan, 0);
+                                            //kembalikan ke baris awal jika query sebelumnya sdah digunakan
+                                            while ($row = mysqli_fetch_assoc($query_pesanan)) {
+                                                $subtotal += $row['qty'] * $row['harga'];
+                                            }
+
+                                            // Hitung diskon
+                                            $diskon = 0;
+                                            if ($subtotal > 3000000) {
+                                                $diskon = 0.07 * $subtotal;
+                                            } elseif ($subtotal > 1500000) {
+                                                $diskon = 0.05 * $subtotal;
+                                            }
+
+                                            $total_bayar = $subtotal - $diskon
+                                            ?>
+
                                             <ul>
-                                                <li>Subtotal <span>$130.00</span></li>
-                                                <li>Total <span>$130.00</span></li>
+                                                <li>Subtotal <span>Rp <?= number_format($subtotal, 0, ',', '.') ?></span></li>
+                                                <li>Diskon <span>Rp <?= number_format($diskon, 0, ',', '.') ?></span></li>
+                                                <li>Total <span>Rp <?= number_format($total_bayar, 0, ',', '.') ?></span></li>
                                             </ul>
-                                            <a href="#">Proceed to checkout</a>
+                                            
+                                            <button type="submit" name="checkout" class="btn btn-dark mt-3">Checkout</button>
                                         </div>
                                     </div>
                                 </div>
