@@ -239,8 +239,7 @@ session_start();
                                     if ($qty < 1) $qty = 1;
 
                                     // Ambil harga produk terkait dari join tabel
-                                    $query = mysqli_query($koneksi, "
-                                        SELECT pr.harga 
+                                    $query = mysqli_query($koneksi, "SELECT pr.harga 
                                         FROM tb_pesanan p 
                                         JOIN tb_produk pr ON p.id_produk = pr.id_produk 
                                         WHERE p.id_pesanan = '$id_pesanan' AND p.id_user = '$id_user'
@@ -250,8 +249,7 @@ session_start();
                                     $total = $qty * $harga;
 
                                     // Update qty dan total
-                                    mysqli_query($koneksi, "
-                                        UPDATE tb_pesanan 
+                                    mysqli_query($koneksi, "UPDATE tb_pesanan 
                                         SET qty = '$qty', total = '$total' 
                                         WHERE id_pesanan = '$id_pesanan' AND id_user = '$id_user'
                                     ");
@@ -272,8 +270,7 @@ session_start();
                             $id_user = $_SESSION['id_user'];
 
                             // Ambil data pesanan user
-                            $query_pesanan = mysqli_query($koneksi, "
-                                SELECT p.*, pr.harga 
+                            $query_pesanan = mysqli_query($koneksi, "SELECT p.*, pr.harga 
                                 FROM tb_pesanan p
                                 JOIN tb_produk pr ON p.id_produk = pr.id_produk
                                 WHERE p.id_user = '$id_user'
@@ -378,8 +375,7 @@ session_start();
                                         $id_user = $data_user['id_user'];
 
                                         // Ambil data pesanan berdasarkan id_user
-                                        $query_pesanan = mysqli_query($koneksi, "
-    SELECT p.*, pr.nm_produk, pr.gambar, pr.harga 
+                                        $query_pesanan = mysqli_query($koneksi, "SELECT p.*, pr.nm_produk, pr.gambar, pr.harga 
     FROM tb_pesanan p
     JOIN tb_produk pr ON p.id_produk = pr.id_produk
     WHERE p.id_user = '$id_user'

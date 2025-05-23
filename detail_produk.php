@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -214,6 +218,14 @@
         <!-- Li's Breadcrumb Area End Here -->
         <!-- content-wraper start -->
         <div class="content-wraper">
+            <?php
+            include 'admin/koneksi.php'; // koneksi ke database
+
+            $id = $_GET['id'];
+            $query = mysqli_query($koneksi, "SELECT p.*, k.nm_kategori FROM tb_produk p LEFT JOIN tb_kategori k ON p.id_kategori = k.id_kategori WHERE id_produk='$id'");
+            $data = mysqli_fetch_assoc($query);
+            ?>
+
             <div class="container">
                 <div class="row single-product-area">
                     <div class="col-lg-5 col-md-6">
@@ -221,64 +233,46 @@
                         <div class="product-details-left">
                             <div class="product-details-images slider-navigation-1">
                                 <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/1.jpg" data-gall="myGallery">
-                                        <img src="images/product/large-size/1.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/2.jpg" data-gall="myGallery">
-                                        <img src="images/product/large-size/2.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/3.jpg" data-gall="myGallery">
-                                        <img src="images/product/large-size/3.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/4.jpg" data-gall="myGallery">
-                                        <img src="images/product/large-size/4.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/5.jpg" data-gall="myGallery">
-                                        <img src="images/product/large-size/5.jpg" alt="product image">
-                                    </a>
-                                </div>
-                                <div class="lg-image">
-                                    <a class="popup-img venobox vbox-item" href="images/product/large-size/6.jpg" data-gall="myGallery">
-                                        <img src="images/product/large-size/6.jpg" alt="product image">
+                                    <a class="popup-img venobox vbox-item" href="admin/produk_img/<?= $data ['gambar'] ?>" data-gall="myGallery">
+                                        <img src="admin/produk_img/<?= $data['gambar'] ?>" alt="<?= $data['nm_produk'] ?>" width="300" height="300">
                                     </a>
                                 </div>
                             </div>
                         </div>
-                        <!--// Product Details Left -->
                     </div>
+
+                    <?php if ($data['stok'] == 0) : ?>
+                        <script>
+                            alert('Stok produk ini sudah habis.');
+                            window.location.href = 'belanja.php';
+                        </script>
+                        <?php endif; ?>
 
                     <div class="col-lg-7 col-md-6">
                         <div class="product-details-view-content pt-60">
                             <div class="product-info">
-                                <h2>Toshiba 24 inchi</h2>
-                                <span class="product-details-ref">Kategori: Televisi</span>
+                                <h2><?= $data['nm_produk'] ?></h2>
+                                <span class="product-details-ref">Kategori: <?= $data['nm_kategori'] ?></span>
                                 <div class="price-box pt-20">
-                                    <span class="new-price new-price-2">Rp. 5.999.000</span>
+                                    <span class="new-price new-price-2">
+                                        Rp<?= number_format($data['harga'], 0, ',', '.') ?>
+                                    </span>
                                 </div>
                                 <div class="product-desc">
                                     <p>
-                                        <span>100% cotton double printed dress. Black and white striped top and orange high waisted skater skirt bottom. Lorem ipsum dolor sit amet, consectetur adipisicing elit. quibusdam corporis, earum facilis et nostrum dolorum accusamus similique eveniet quia pariatur.
+                                        <span><?= nl2br($data['desk']) ?>
                                         </span>
-                                    <p><strong>Stok Tersedia:</strong> 3 unit</p>
+                                    <p><strong>Stok Tersedia:</strong> <?= $data['stok'] ?> unit</p>
                                     </p>
                                 </div>
                                 <div class="single-add-to-cart">
-                                    <form action="#" class="cart-quantity">
-                                        <div class="quantity">
+                                    <form action="tambah_ke_keranjang.php" method="POST" class="cart-quantity">
+                                        <input type="hidden" name="id_produk" value="<?= $data['id_produk'] ?>">
+                                        <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
+                                        <input type="hidden" name="harga" value="<?= $data['harga'] ?>">
+                                        <input type="hidden" name="redirect_url" value="<?= $_SERVER['REQUEST_URI'] ?>">
+                                        <div class="quatuty">
                                             <label>Jumlah</label>
-                                            <div class="cart-plus-minus">
-                                                <input class="cart-plus-minus-box" value="1" type="text">
-                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                            </div>
                                         </div>
                                         <button class="add-to-cart" type="submit">Beli Sekarang</button>
                                     </form>
@@ -316,7 +310,7 @@
                 <div class="tab-content">
                     <div id="description" class="tab-pane active show" role="tabpanel">
                         <div class="product-description">
-                            <span>The best is yet to come! Give your walls a voice with a framed poster. This aesthethic, optimistic poster will look great in your desk or in an open-space office. Painted wooden frame with passe-partout for more depth.</span>
+                            <span>Test.</span>
                         </div>
                     </div>
                 </div>
