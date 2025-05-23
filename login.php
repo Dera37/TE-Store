@@ -362,11 +362,6 @@ if (isset($_POST["login"])) {
                                 <div class="footer-block">
                                     <h3 class="footer-block-title">Ikuti Kami</h3>
                                     <ul class="social-link">
-                                        <li class="twitter">
-                                            <a href="https://twitter.com/" data-toggle="tooltip" target="_blank" title="Twitter">
-                                                <i class="fa fa-twitter"></i>
-                                            </a>
-                                        </li>
                                         <li class="facebook">
                                             <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank" title="Facebook">
                                                 <i class="fa fa-facebook"></i>

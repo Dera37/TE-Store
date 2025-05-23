@@ -281,8 +281,6 @@ session_start();
                                     <div class="product-social-sharing pt-25">
                                         <ul>
                                             <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                                            <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
-                                            <li class="google-plus"><a href="#"><i class="fa fa-google-plus"></i>Google +</a></li>
                                             <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
                                         </ul>
                                     </div>
@@ -310,7 +308,7 @@ session_start();
                 <div class="tab-content">
                     <div id="description" class="tab-pane active show" role="tabpanel">
                         <div class="product-description">
-                            <span>Test.</span>
+                            <span><?= nl2br($data['desk']) ?></span>
                         </div>
                     </div>
                 </div>
@@ -330,36 +328,53 @@ session_start();
                         </div>
                         <div class="row">
                             <div class="product-active owl-carousel">
+                                <?php
+                                include 'admin/koneksi.php';
+                                $id_produk = $_GET['id'];
+
+                                $query_produk_lain = mysqli_query($koneksi, "SELECT * FROM tb_produk WHERE id_produk != '$id_produk' ORDER BY RAND() LIMIT 6");
+                                while ($p = mysqli_fetch_array($query_produk_lain)) {
+                                    ?>
+                            
                                 <div class="col-lg-12">
                                     <!-- single-product-wrap start -->
                                     <div class="single-product-wrap">
                                         <div class="product-image">
-                                            <a href="single-product.html">
-                                                <img src="images/product/large-size/1.jpg" alt="Li's Product Image">
+                                            <a href="detail_produk.php?id_produk=<?= $p['id_produk'] ?>">
+                                                <img src="admin/produk_img/<?= $p['gambar'] ?>" alt="<?= $p['nm_produk'] ?>" width="300" height="300">
                                             </a>
                                         </div>
                                         <div class="product_desc">
                                             <div class="product_desc_info">
                                                 <div class="product-review">
                                                     <h5 class="manufacturer">
-                                                        <a href="product-details.html">Televisi</a>
+                                                        <a href="#"><?= $p['id_kategori'] ?></a>
                                                     </h5>
                                                 </div>
-                                                <h4><a class="product_name" href="single-product.html">Toshiba 24 inchi</a></h4>
+                                                <h4><a class="product_name" href="detail_produk.php?id_produk=<?= $p['id_produk'] ?>">
+                                                    <?= $p['nm_produk'] ?>
+                                                </a>
+                                                </h4>
                                                 <div class="price-box">
-                                                    <span class="new-price">Rp. 5.999.000</span>
+                                                    <span class="new-price">Rp<?= number_format($p['harga'], 0, ',', '.') ?></span>
                                                 </div>
                                             </div>
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
-                                                    <li class="add-cart active"><a href="#">Beli Sekarang</a></li>
-                                                    <li><a href="#" title="quick view" class="quick-view-btn" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-eye"></i></a></li>
+                                                    <li class="add-cart active">
+                                                        <a href="detail_produk.php?id_produk=<?= $p['id_produk'] ?>">Beli Sekarang</a>
+                                                    <li>
+                                                        <a href="detail_produk.php?id_produk=<?= $p['id_produk'] ?>"title="Quick View" class="quick-view-btn">
+                                                            <i class="fa fa-eye"></i>
+                                                        </a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                     <!-- single-product-wrap end -->
                                 </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
@@ -449,7 +464,7 @@ session_start();
                                     <h1 style="color: #900C3F;">TE-Store</h1>
                                     <p class="info">
                                         Inovasi dalam genggaman Anda - hanya di <strong style="color: #900C3F;">TE Store</strong>.
-                                        Kami menyediakan pilihan lengkap mulai dari smartphone terbaru, laptop andal, hingga aksesoris elektronik kekinian. Belanja jadi lebih mudah, praktis, dan hemat untuk semua kebutuhan digital Anda.
+                                        Kami menyediakan pilihan lengkap mulai dari smartphone terbaru, laptop hadal, hingga aksesoris elektronik kekinian. Belanja jadi lebih mudah, praktis, dan hemat untuk semua kebutuhan digital Anda.
                                     </p>
                                 </div>
                                 <ul class="des">
@@ -495,7 +510,6 @@ session_start();
                                         </li>
                                         <li class="youtube">
                                             <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank" title="Youtube">
-                                                <i class="fa fa-youtube"></i>
                                             </a>
                                         </li>
                                         <li class="instagram">
@@ -596,7 +610,6 @@ session_start();
                                             <div class="product-social-sharing pt-25">
                                                 <ul>
                                                     <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
-                                                    <li class="twitter"><a href="#"><i class="fa fa-twitter"></i>Twitter</a></li>
                                                     <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
                                                 </ul>
                                             </div>
