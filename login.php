@@ -175,7 +175,7 @@ if (isset($_POST["login"])) {
                                     <ul>
                                         <li><a href="index.html">Beranda</a></li>
                                         <li><a href="belanja.php">Belanja</a></li>
-                                        <li><a href="blog-left-sidebar.html">Hubungi Kami</a></li>
+                                        <li><a href="contact.php">Hubungi Kami</a></li>
                                     </ul>
                                 </nav>
                             </div>
