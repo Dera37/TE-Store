@@ -77,24 +77,6 @@ $data = mysqli_fetch_array($sql);
     <div class="body-wrapper">
         <!-- Begin Header Area -->
         <header class="li-header-4">
-            <!-- Begin Header Top Area -->
-            <div class="header-top">
-                <div class="container">
-                    <div class="row">
-                        <!-- Begin Header Top Left Area -->
-                        <div class="col-lg-3 col-md-4">
-                            <div class="header-top-left">
-                                <ul class="phone-wrap">
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- Header Top Left Area End Here -->
-                        <!-- Begin Header Top Right Area -->
-                        <!-- Header Top Right Area End Here -->
-                    </div>
-                </div>
-            </div>
-            <!-- Header Top Area End Here -->
             <!-- Begin Header Middle Area -->
             <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
                 <div class="container">
@@ -102,7 +84,7 @@ $data = mysqli_fetch_array($sql);
                         <!-- Begin Header Logo Area -->
                         <div class="col-lg-3">
                             <div class="logo pb-sm-30 pb-xs-30">
-                                <a href="index.html">
+                                <a href="index.php" style="color: #D2FF72;">
                                     <h1>TE Store</h1>
                                 </a>
                             </div>
@@ -345,11 +327,10 @@ $data = mysqli_fetch_array($sql);
                             <!-- Begin Footer Logo Area -->
                             <div class="col-lg-4 col-md-6">
                                 <div class="footer-logo">
-                                    <h1>TE-Store</h1>
-                                    <p class="info">
-                                        TE-Store hadir untuk memenuhi kebutuhan teknologi Anda. 
-                                        Tempat terbaik untuk menemukan berbagai produk elektronik berkualitas dengan harga bersahabat. 
-                                        Dari gadget terbaru hingga perangkat rumah tangga canggih, semua ada di sini!
+                                    <h1 style="color: #900C3F;">TE-Store</h1>
+                                     <p class="info">
+                                        Inovasi dalam genggaman Anda - hanya di <strong style="color: #900C3F;">TE Store</strong>.
+                                        Kami menyediakan pilihan lengkap mulai dari smartphone terbaru, laptop handal, hingga aksesoris elektronik kekinian. Belanja jadi lebih mudah, praktis, dan hemat untuk semua kebutuhan digital Anda.
                                     </p>
                                 </div>
                                 <ul class="des">
@@ -385,16 +366,6 @@ $data = mysqli_fetch_array($sql);
                                 <div class="footer-block">
                                     <h3 class="footer-block-title">Ikuti Kami</h3>
                                     <ul class="social-link">
-                                        <li class="facebook">
-                                            <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank" title="Facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="youtube">
-                                            <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank" title="Youtube">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
                                         <li class="instagram">
                                             <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
                                                 <i class="fa fa-instagram"></i>
@@ -428,7 +399,7 @@ $data = mysqli_fetch_array($sql);
                             <!-- Footer Payment Area End Here -->
                             <!-- Begin Copyright Area -->
                             <div class="copyright text-center pt-25">
-                                <span><a target="_blank" href="https://www.templateshub.net">Designed by: Dera Ardanik</a></span>
+                                <span><a target="_blank" href="https://www.instagram.com/dera.rdnk/">Designed by: Dera Ardanik</a></span>
                             </div>
                             <!-- Copyright Area End Here -->
                         </div>

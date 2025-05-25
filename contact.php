@@ -1,14 +1,11 @@
-<?php
-session_start();
-?>
 <!doctype html>
 <html class="no-js" lang="zxx">
     
-<!-- shopping-cart31:32-->
+<!-- contact32:04-->
 <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Hubungi Kami || TE Store</title>
+        <title>Contact || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Favicon -->
@@ -37,10 +34,10 @@ session_start();
         <link rel="stylesheet" href="css/magnific-popup.css">
         <!-- Bootstrap V4.1.3 Fremwork CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
-        <!-- Helper CSS -->
-        <link rel="stylesheet" href="css/helper.css">
         <!-- Main Style CSS -->
         <link rel="stylesheet" href="style.css">
+        <!-- Helper CSS -->
+        <link rel="stylesheet" href="css/helper.css">
         <!-- Responsive CSS -->
         <link rel="stylesheet" href="css/responsive.css">
         <!-- Modernizr js -->
@@ -53,9 +50,67 @@ session_start();
         <!-- Begin Body Wrapper -->
         <div class="body-wrapper">
             <!-- Begin Header Area -->
-            <header class="li-header-4">
+            <header>
                 <!-- Begin Header Top Area -->
-                
+                <div class="header-top">
+                    <div class="container">
+                        <div class="row">
+                            <!-- Begin Header Top Left Area -->
+                            <div class="col-lg-3 col-md-4">
+                                <div class="header-top-left">
+                                    <ul class="phone-wrap">
+                                        <li><span>Telephone Enquiry:</span><a href="#">(+123) 123 321 345</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Header Top Left Area End Here -->
+                            <!-- Begin Header Top Right Area -->
+                            <div class="col-lg-9 col-md-8">
+                                <div class="header-top-right">
+                                    <ul class="ht-menu">
+                                        <!-- Begin Setting Area -->
+                                        <li>
+                                            <div class="ht-setting-trigger"><span>Setting</span></div>
+                                            <div class="setting ht-setting">
+                                                <ul class="ht-setting-list">
+                                                    <li><a href="login-register.html">My Account</a></li>
+                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="login-register.html">Sign In</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Setting Area End Here -->
+                                        <!-- Begin Currency Area -->
+                                        <li>
+                                            <span class="currency-selector-wrapper">Currency :</span>
+                                            <div class="ht-currency-trigger"><span>USD $</span></div>
+                                            <div class="currency ht-currency">
+                                                <ul class="ht-setting-list">
+                                                    <li><a href="#">EUR €</a></li>
+                                                    <li class="active"><a href="#">USD $</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Currency Area End Here -->
+                                        <!-- Begin Language Area -->
+                                        <li>
+                                            <span class="language-selector-wrapper">Language :</span>
+                                            <div class="ht-language-trigger"><span>English</span></div>
+                                            <div class="language ht-language">
+                                                <ul class="ht-setting-list">
+                                                    <li class="active"><a href="#"><img src="images/menu/flag-icon/1.jpg" alt="">English</a></li>
+                                                    <li><a href="#"><img src="images/menu/flag-icon/2.jpg" alt="">Français</a></li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                        <!-- Language Area End Here -->
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- Header Top Right Area End Here -->
+                        </div>
+                    </div>
+                </div>
                 <!-- Header Top Area End Here -->
                 <!-- Begin Header Middle Area -->
                 <div class="header-middle pl-sm-0 pr-sm-0 pl-xs-0 pr-xs-0">
@@ -64,8 +119,8 @@ session_start();
                             <!-- Begin Header Logo Area -->
                             <div class="col-lg-3">
                                 <div class="logo pb-sm-30 pb-xs-30">
-                                    <a href="index.php">
-                                        <h1>TE Store</h1>
+                                    <a href="index.html">
+                                        <img src="images/menu/logo/1.jpg" alt="">
                                     </a>
                                 </div>
                             </div>
@@ -73,7 +128,83 @@ session_start();
                             <!-- Begin Header Middle Right Area -->
                             <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
                                 <!-- Begin Header Middle Searchbox Area -->
-                                
+                                <form action="#" class="hm-searchbox">
+                                    <select class="nice-select select-search-category">
+                                        <option value="0">All</option>                         
+                                        <option value="10">Laptops</option>                     
+                                        <option value="17">- -  Prime Video</option>                    
+                                        <option value="20">- - - -  All Videos</option>                     
+                                        <option value="21">- - - -  Blouses</option>                        
+                                        <option value="22">- - - -  Evening Dresses</option>                
+                                        <option value="23">- - - -  Summer Dresses</option>                     
+                                        <option value="24">- - - -  T-shirts</option>                       
+                                        <option value="25">- - - -  Rent or Buy</option>                        
+                                        <option value="26">- - - -  Your Watchlist</option>                     
+                                        <option value="27">- - - -  Watch Anywhere</option>                     
+                                        <option value="28">- - - -  Getting Started</option>         
+                                        <option value="18">- - - -  Computers</option>                      
+                                        <option value="29">- - - -  More to Explore</option>         
+                                        <option value="30">- - - -  TV &amp; Video</option>                     
+                                        <option value="31">- - - -  Audio &amp; Theater</option>               
+                                        <option value="32">- - - -  Camera, Photo </option>
+                                        <option value="33">- - - -  Cell Phones</option>                        
+                                        <option value="34">- - - -  Headphones</option>                     
+                                        <option value="35">- - - -  Video Games</option>                        
+                                        <option value="36">- - - -  Wireless Speakers</option>            
+                                        <option value="19">- - - -  Electronics</option>                        
+                                        <option value="37">- - - -  Amazon Home</option>                        
+                                        <option value="38">- - - -  Kitchen &amp; Dining</option>           
+                                        <option value="39">- - - -  Furniture</option>                      
+                                        <option value="40">- - - -  Bed &amp; Bath</option>                     
+                                        <option value="41">- - - -  Appliances</option>                 
+                                        <option value="11">TV &amp; Audio</option>                  
+                                        <option value="42">- -  SamSung</option>                        
+                                        <option value="45">- - - -  Office</option>                     
+                                        <option value="47">- - - -  Gaming</option>                 
+                                        <option value="48">- - - -  Chromebook</option>                     
+                                        <option value="49">- - - -  Refurbished</option>                    
+                                        <option value="50">- - - -  Touchscreen</option>                        
+                                        <option value="51">- - - -  Ultrabooks</option>                     
+                                        <option value="52">- - - -  Blouses</option>                        
+                                        <option value="43">- -  Toshiba</option>                        
+                                        <option value="53">- - - -  Hard Drives</option>                        
+                                        <option value="54">- - - -  Graphic Cards</option>                      
+                                        <option value="55">- - - -  Processors (CPU)</option>  
+                                        <option value="56">- - - -  Memory</option>                     
+                                        <option value="57">- - - -  Motherboards</option>                       
+                                        <option value="58">- - - -  Fans &amp; Cooling</option> 
+                                        <option value="59">- - - -  CD/DVD Drives</option>                      
+                                        <option value="44">- -  Sony Bravia</option>                        
+                                        <option value="60">- - - -  Sound Cards</option>                        
+                                        <option value="61">- - - -  Cases &amp; Towers</option>   
+                                        <option value="62">- - - -  Casual Dresses</option>                     
+                                        <option value="63">- - - -  Evening Dresses</option>       
+                                        <option value="64">- - - -  T-shirts</option>                       
+                                        <option value="65">- - - -  Tops</option>                                 
+                                        <option value="12">Smartphone</option>                  
+                                        <option value="66">- -  Camera Accessories</option>                     
+                                        <option value="68">- - - -  Octa Core</option>                      
+                                        <option value="69">- - - -  Quad Core</option>                  
+                                        <option value="70">- - - -  Dual Core</option>                      
+                                        <option value="71">- - - -  7.0 Screen</option>                     
+                                        <option value="72">- - - -  9.0 Screen</option>                     
+                                        <option value="73">- - - -  Bags &amp; Cases</option>                   
+                                        <option value="67">- -  Camcorders</option>                     
+                                        <option value="74">- - - -  Batteries</option>                      
+                                        <option value="75">- - - -  Microphones</option>                        
+                                        <option value="76">- - - -  Stabilizers</option>                        
+                                        <option value="77">- - - -  Video Tapes</option>                        
+                                        <option value="78">- - - -  Memory Card Readers</option> 
+                                        <option value="79">- - - -  Tripods</option>           
+                                        <option value="13">Cameras</option>                          
+                                        <option value="14">headphone</option>                                
+                                        <option value="15">Smartwatch</option>                           
+                                        <option value="16">Accessories</option>
+                                    </select>
+                                    <input type="text" placeholder="Enter your search key ...">
+                                    <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                                <!-- Header Middle Searchbox Area End Here -->
                                 <!-- Begin Header Middle Right Area -->
                                 <div class="header-middle-right">
                                     <ul class="hm-menu">
@@ -81,7 +212,7 @@ session_start();
                                         <li class="hm-wishlist">
                                             <a href="wishlist.html">
                                                 <span class="cart-item-count wishlist-item-count">0</span>
-                                                <i class="fa fa-user"></i>
+                                                <i class="fa fa-heart-o"></i>
                                             </a>
                                         </li>
                                         <!-- Header Middle Wishlist Area End Here -->
@@ -151,7 +282,7 @@ session_start();
                                 <div class="hb-menu">
                                     <nav>
                                         <ul>
-                                            <li class="dropdown-holder"><a href="index.html">Beranda</a>
+                                            <li class="dropdown-holder"><a href="index.html">Home</a>
                                                 <ul class="hb-dropdown">
                                                     <li><a href="index.html">Home One</a></li>
                                                     <li><a href="index-2.html">Home Two</a></li>
@@ -159,7 +290,7 @@ session_start();
                                                     <li><a href="index-4.html">Home Four</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="catmenu-dropdown megamenu-holder"><a href="shop-left-sidebar.html">Belanja</a>
+                                            <li class="catmenu-dropdown megamenu-holder"><a href="shop-left-sidebar.html">Shop</a>
                                                 <ul class="megamenu hb-megamenu">
                                                     <li><a href="shop-left-sidebar.html">Shop Page Layout</a>
                                                         <ul>
@@ -193,7 +324,7 @@ session_start();
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="dropdown-holder"><a href="blog-left-sidebar.html">Hubungi Kami</a>
+                                            <li class="dropdown-holder"><a href="blog-left-sidebar.html">Blog</a>
                                                 <ul class="hb-dropdown">
                                                     <li class="sub-dropdown-holder"><a href="blog-left-sidebar.html">Blog Grid View</a>
                                                         <ul class="hb-dropdown hb-sub-dropdown">
@@ -225,7 +356,8 @@ session_start();
                                                     </li>
                                                 </ul>
                                             </li>
-                                                    <ul class="megamenu hb-megamenu">
+                                            <li class="catmenu-dropdown megamenu-static-holder"><a href="index.html">Pages</a>
+                                                <ul class="megamenu hb-megamenu">
                                                     <li><a href="blog-left-sidebar.html">Blog Layouts</a>
                                                         <ul>
                                                             <li><a href="blog-2-column.html">Blog 2 Column</a></li>
@@ -252,12 +384,12 @@ session_start();
                                                             <li><a href="checkout.html">Checkout</a></li>
                                                             <li><a href="compare.html">Compare</a></li>
                                                             <li><a href="wishlist.html">Wishlist</a></li>
-                                                            <li class="active"><a href="shopping-cart.html">Shopping Cart</a></li>
+                                                            <li><a href="shopping-cart.html">Shopping Cart</a></li>
                                                         </ul>
                                                     </li>
                                                     <li><a href="index.html">Other Pages 2</a>
                                                         <ul>
-                                                            <li><a href="contact.html">Contact</a></li>
+                                                            <li class="active"><a href="contact.html">Contact</a></li>
                                                             <li><a href="about-us.html">About Us</a></li>
                                                             <li><a href="faq.html">FAQ</a></li>
                                                             <li><a href="404.html">404 Error</a></li>
@@ -265,7 +397,10 @@ session_start();
                                                     </li>
                                                 </ul>
                                             </li>
-    
+                                            <li><a href="about-us.html">About Us</a></li>
+                                            <li><a href="contact.html">Contact</a></li>
+                                            <li><a href="shop-left-sidebar.html">Smartwatch</a></li>
+                                            <li><a href="shop-left-sidebar.html">Accessories</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -292,96 +427,73 @@ session_start();
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="index.html">Beranda</a></li>
-                            <li class="active">Hubungi Kami</li>
+                            <li><a href="index.html">Home</a></li>
+                            <li class="active">Contact</li>
                         </ul>
                     </div>
                 </div>
             </div>
-            <!-- Li's Breadcrumb Area End Here -->
-            <!--Shopping Cart Area Strat-->
-            <div class="Shopping-cart-area pt-60 pb-60">
+            <!-- Li's Breadcrumb Area End Here -->     
+            <!-- Begin Contact Main Page Area -->
+            <div class="contact-main-page mt-60 mb-40 mb-md-40 mb-sm-40 mb-xs-40">
+                <div class="container mb-60">
+                    <div id="google-map"></div>
+                </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
-                            <form action="#">
-                                <div class="table-content table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th class="li-product-remove">remove</th>
-                                                <th class="li-product-thumbnail">images</th>
-                                                <th class="cart-product-name">Product</th>
-                                                <th class="li-product-price">Unit Price</th>
-                                                <th class="li-product-quantity">Quantity</th>
-                                                <th class="li-product-subtotal">Total</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="images/product/small-size/5.jpg" alt="Li's Product Image"></a></td>
-                                                <td class="li-product-name"><a href="#">Accusantium dolorem1</a></td>
-                                                <td class="li-product-price"><span class="amount">$46.80</span></td>
-                                                <td class="quantity">
-                                                    <label>Quantity</label>
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" value="1" type="text">
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal"><span class="amount">$70.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="li-product-remove"><a href="#"><i class="fa fa-times"></i></a></td>
-                                                <td class="li-product-thumbnail"><a href="#"><img src="images/product/small-size/6.jpg" alt="Li's Product Image"></a></td>
-                                                <td class="li-product-name"><a href="#">Mug Today is a good day</a></td>
-                                                <td class="li-product-price"><span class="amount">$71.80</span></td>
-                                                <td class="quantity">
-                                                    <label>Quantity</label>
-                                                    <div class="cart-plus-minus">
-                                                        <input class="cart-plus-minus-box" value="1" type="text">
-                                                        <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
-                                                        <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
-                                                    </div>
-                                                </td>
-                                                <td class="product-subtotal"><span class="amount">$60.50</span></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                        <div class="col-lg-5 offset-lg-1 col-md-12 order-1 order-lg-2">
+                            <div class="contact-page-side-content">
+                                <h3 class="contact-page-title">Contact Us</h3>
+                                <p class="contact-page-message mb-25">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human.</p>
+                                <div class="single-contact-block">
+                                    <h4><i class="fa fa-fax"></i> Address</h4>
+                                    <p>123 Main Street, Anytown, CA 12345 – USA</p>
                                 </div>
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="coupon-all">
-                                            <div class="coupon">
-                                                <input id="coupon_code" class="input-text" name="coupon_code" value="" placeholder="Coupon code" type="text">
-                                                <input class="button" name="apply_coupon" value="Apply coupon" type="submit">
-                                            </div>
-                                            <div class="coupon2">
-                                                <input class="button" name="update_cart" value="Update cart" type="submit">
-                                            </div>
+                                <div class="single-contact-block">
+                                    <h4><i class="fa fa-phone"></i> Phone</h4>
+                                    <p>Mobile: (08) 123 456 789</p>
+                                    <p>Hotline: 1009 678 456</p>
+                                </div>
+                                <div class="single-contact-block last-child">
+                                    <h4><i class="fa fa-envelope-o"></i> Email</h4>
+                                    <p>yourmail@domain.com</p>
+                                    <p>support@hastech.company</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 order-2 order-lg-1">
+                            <div class="contact-form-content pt-sm-55 pt-xs-55">
+                                <h3 class="contact-page-title">Tell Us Your Message</h3>
+                                <div class="contact-form">
+                                    <form  id="contact-form" action="http://demo.hasthemes.com/limupa-v3/limupa/mail.php" method="post">
+                                        <div class="form-group">
+                                            <label>Your Name <span class="required">*</span></label>
+                                            <input type="text" name="customerName" id="customername" required>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-5 ml-auto">
-                                        <div class="cart-page-total">
-                                            <h2>Cart totals</h2>
-                                            <ul>
-                                                <li>Subtotal <span>$130.00</span></li>
-                                                <li>Total <span>$130.00</span></li>
-                                            </ul>
-                                            <a href="#">Proceed to checkout</a>
+                                        <div class="form-group">
+                                            <label>Your Email <span class="required">*</span></label>
+                                            <input type="email" name="customerEmail" id="customerEmail" required>
                                         </div>
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Subject</label>
+                                            <input type="text" name="contactSubject" id="contactSubject">
+                                        </div>
+                                        <div class="form-group mb-30">
+                                            <label>Your Message</label>
+                                            <textarea name="contactMessage" id="contactMessage" ></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" value="submit" id="submit" class="li-btn-3" name="submit">send</button>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
+                                <p class="form-messege"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--Shopping Cart Area End-->
+            <!-- Contact Main Page Area End Here -->
             <!-- Begin Footer Area -->
             <div class="footer">
                 <!-- Begin Footer Static Top Area -->
@@ -653,7 +765,202 @@ session_start();
         <script src="js/scrollUp.min.js"></script>
         <!-- Main/Activator js -->
         <script src="js/main.js"></script>
+            <!-- Google Map -->
+            <script src="https://maps.google.com/maps/api/js?sensor=false&amp;libraries=geometry&amp;v=3.22&amp;key=AIzaSyChs2QWiAhnzz0a4OEhzqCXwx_qA9ST_lE"></script>
+            
+            <script>
+                // When the window has finished loading create our google map below
+                google.maps.event.addDomListener(window, 'load', init);
+                function init() {
+                    // Basic options for a simple Google Map
+                    // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
+                    var mapOptions = {
+                        // How zoomed in you want the map to start at (always required)
+                        zoom: 12,
+                        scrollwheel: false,
+                        // The latitude and longitude to center the map (always required)
+                        center: new google.maps.LatLng(40.740610, -73.935242), // New York
+                        // How you would like to style the map. 
+                        // This is where you would paste any style found on
+                        styles: [{
+                                "featureType": "water",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                        "color": "#e9e9e9"
+                                    },
+                                    {
+                                        "lightness": 17
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "landscape",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                        "color": "#f5f5f5"
+                                    },
+                                    {
+                                        "lightness": 20
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "geometry.fill",
+                                "stylers": [{
+                                        "color": "#ffffff"
+                                    },
+                                    {
+                                        "lightness": 17
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.highway",
+                                "elementType": "geometry.stroke",
+                                "stylers": [{
+                                        "color": "#ffffff"
+                                    },
+                                    {
+                                        "lightness": 29
+                                    },
+                                    {
+                                        "weight": 0.2
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.arterial",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                        "color": "#ffffff"
+                                    },
+                                    {
+                                        "lightness": 18
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "road.local",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                        "color": "#ffffff"
+                                    },
+                                    {
+                                        "lightness": 16
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                        "color": "#f5f5f5"
+                                    },
+                                    {
+                                        "lightness": 21
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "poi.park",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                        "color": "#dedede"
+                                    },
+                                    {
+                                        "lightness": 21
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.stroke",
+                                "stylers": [{
+                                        "visibility": "on"
+                                    },
+                                    {
+                                        "color": "#ffffff"
+                                    },
+                                    {
+                                        "lightness": 16
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.text.fill",
+                                "stylers": [{
+                                        "saturation": 36
+                                    },
+                                    {
+                                        "color": "#333333"
+                                    },
+                                    {
+                                        "lightness": 40
+                                    }
+                                ]
+                            },
+                            {
+                                "elementType": "labels.icon",
+                                "stylers": [{
+                                    "visibility": "off"
+                                }]
+                            },
+                            {
+                                "featureType": "transit",
+                                "elementType": "geometry",
+                                "stylers": [{
+                                        "color": "#f2f2f2"
+                                    },
+                                    {
+                                        "lightness": 19
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative",
+                                "elementType": "geometry.fill",
+                                "stylers": [{
+                                        "color": "#fefefe"
+                                    },
+                                    {
+                                        "lightness": 20
+                                    }
+                                ]
+                            },
+                            {
+                                "featureType": "administrative",
+                                "elementType": "geometry.stroke",
+                                "stylers": [{
+                                        "color": "#fefefe"
+                                    },
+                                    {
+                                        "lightness": 17
+                                    },
+                                    {
+                                        "weight": 1.2
+                                    }
+                                ]
+                            }
+                        ]
+                    };
+
+                    // Get the HTML DOM element that will contain your map 
+                    // We are using a div with id="map" seen below in the <body>
+                    var mapElement = document.getElementById('google-map');
+
+                    // Create the Google Map using our element and options defined above
+                    var map = new google.maps.Map(mapElement, mapOptions);
+
+                    // Let's also add a marker while we're at it
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(40.740610, -73.935242),
+                        map: map,
+                        title: 'Limupa',
+                        animation: google.maps.Animation.BOUNCE
+                    });
+                }
+            </script>
     </body>
 
-<!-- shopping-cart31:32-->
+<!-- contact32:04-->
 </html>

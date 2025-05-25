@@ -89,7 +89,7 @@ if (isset($_POST["login"])) {
                         <!-- Begin Header Logo Area -->
                         <div class="col-lg-3">
                             <div class="logo pb-sm-30 pb-xs-30">
-                                <a href="index.html">
+                                <a href="index.php" style="color: #D2FF72;">
                                     <h1>TE Store</h1>
                                 </a>
                             </div>
@@ -322,11 +322,10 @@ if (isset($_POST["login"])) {
                             <!-- Begin Footer Logo Area -->
                             <div class="col-lg-4 col-md-6">
                                 <div class="footer-logo">
-                                    <h1>TE-Store</h1>
+                                    <h1 style="color: #900C3F;">TE-Store</h1>
                                     <p class="info">
-                                        TE-Store hadir untuk memenuhi kebutuhan teknologi Anda. 
-                                        Tempat terbaik untuk menemukan berbagai produk elektronik berkualitas dengan harga bersahabat. 
-                                        Dari gadget terbaru hingga perangkat rumah tangga canggih, semua ada di sini!
+                                        Inovasi dalam genggaman Anda - hanya di <strong style="color: #900C3F;">TE Store</strong>.
+                                        Kami menyediakan pilihan lengkap mulai dari smartphone terbaru, laptop handal, hingga aksesoris elektronik kekinian. Belanja jadi lebih mudah, praktis, dan hemat untuk semua kebutuhan digital Anda.
                                     </p>
                                 </div>
                                 <ul class="des">
@@ -362,16 +361,6 @@ if (isset($_POST["login"])) {
                                 <div class="footer-block">
                                     <h3 class="footer-block-title">Ikuti Kami</h3>
                                     <ul class="social-link">
-                                        <li class="facebook">
-                                            <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank" title="Facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="youtube">
-                                            <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank" title="Youtube">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
                                         <li class="instagram">
                                             <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
                                                 <i class="fa fa-instagram"></i>
@@ -405,7 +394,7 @@ if (isset($_POST["login"])) {
                             <!-- Footer Payment Area End Here -->
                             <!-- Begin Copyright Area -->
                             <div class="copyright text-center pt-25">
-                                <span><a target="_blank" href="https://www.templateshub.net">Designed by: Dera Ardanik</a></span>
+                                <span><a target="_blank" href="https://www.instagram.com/dera.rdnk/">Designed by: Dera Ardanik</a></span>
                             </div>
                             <!-- Copyright Area End Here -->
                         </div>

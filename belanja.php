@@ -681,7 +681,7 @@ session_start();
                                     <h1 style="color: #900C3F;">TE-Store</h1>
                                     <p class="info">
                                         Inovasi dalam genggaman Anda - hanya di <strong style="color: #900C3F;">TE Store</strong>.
-                                        Kami menyediakan pilihan lengkap mulai dari smartphone terbaru, laptop andal, hingga aksesoris elektronik kekinian. Belanja jadi lebih mudah, praktis, dan hemat untuk semua kebutuhan digital Anda.
+                                        Kami menyediakan pilihan lengkap mulai dari smartphone terbaru, laptop handal, hingga aksesoris elektronik kekinian. Belanja jadi lebih mudah, praktis, dan hemat untuk semua kebutuhan digital Anda.
                                     </p>
                                 </div>
                                 <ul class="des">
@@ -715,16 +715,6 @@ session_start();
                                 <div class="footer-block">
                                     <h3 class="footer-block-title">Ikuti Kami</h3>
                                     <ul class="social-link">
-                                        <li class="facebook">
-                                            <a href="https://www.facebook.com/" data-toggle="tooltip" target="_blank" title="Facebook">
-                                                <i class="fa fa-facebook"></i>
-                                            </a>
-                                        </li>
-                                        <li class="youtube">
-                                            <a href="https://www.youtube.com/" data-toggle="tooltip" target="_blank" title="Youtube">
-                                                <i class="fa fa-youtube"></i>
-                                            </a>
-                                        </li>
                                         <li class="instagram">
                                             <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
                                                 <i class="fa fa-instagram"></i>
