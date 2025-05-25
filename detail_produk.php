@@ -271,8 +271,13 @@ session_start();
                                         <input type="hidden" name="id_user" value="<?= $_SESSION['id_user'] ?>">
                                         <input type="hidden" name="harga" value="<?= $data['harga'] ?>">
                                         <input type="hidden" name="redirect_url" value="<?= $_SERVER['REQUEST_URI'] ?>">
-                                        <div class="quatuty">
+                                        <div class="quatity">
                                             <label>Jumlah</label>
+                                            <div class="cart-plus-minus">
+                                                <input name="jumlah" class="cart-plus-minus-box" value="1" type="number" min="1" max="<?= $data['stok'] ?>">
+                                                <div class="dec qtybutton"><i class="fa fa-angle-down"></i></div>
+                                                <div class="inc qtybutton"><i class="fa fa-angle-up"></i></div>
+                                            </div>
                                         </div>
                                         <button class="add-to-cart" type="submit">Beli Sekarang</button>
                                     </form>

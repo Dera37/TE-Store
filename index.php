@@ -254,7 +254,7 @@
                                                    <li class="active"><a href="index-4.html">Home Four</a></li>
                                                </ul>
                                            </li>
-                                           <li class="megamenu-holder"><a href="shop-left-sidebar.html">Belanja</a>
+                                           <li class="megamenu-holder"><a href="belanja.php">Belanja</a>
                                                <ul class="megamenu hb-megamenu">
                                                    <li><a href="shop-left-sidebar.html">Shop Page Layout</a>
                                                        <ul>

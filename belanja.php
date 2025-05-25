@@ -96,7 +96,7 @@ session_start();
                                     $kategoriQuery = mysqli_query($koneksi, "SELECT * FROM tb_kategori ORDER BY nm_kategori ASC");
                                     while ($kategori = mysqli_fetch_assoc($kategoriQuery)) {
                                         $selected = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_kategori']) ? 'selected' : '';
-                                        echo "<option value='{$kategori['id_kategori']}' $selected>{$kategori['nm_kategori']}</option>";
+                                        echo "<option value=\"" . htmlspecialchars($kategori['id_kategori']) . "\" $selected>" . htmlspecialchars($kategori['nm_kategori']) . "</option>";
                                     }
                                     ?>
                                 </select>
