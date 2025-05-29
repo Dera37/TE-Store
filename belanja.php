@@ -340,8 +340,10 @@ session_start();
                                                 $countSql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
                                             }
                                             if (!empty($keyword)) {
-                                                $countSql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
+                                                $safeKeyword = mysqli_real_escape_string($koneksi, $keyword);
+                                                $countSql .= " AND (p.nm_produk LIKE '%$safeKeyword%' OR k.nm_kategori LIKE '%$safeKeyword%')";
                                             }
+
 
                                             $countQuery = mysqli_query($koneksi, $countSql);
                                             $totalData = mysqli_fetch_assoc($countQuery)['total'];
@@ -359,8 +361,10 @@ session_start();
                                                 $sql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
                                             }
                                             if (!empty($keyword)) {
-                                                $sql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
+                                                $safeKeyword = mysqli_real_escape_string($koneksi, $keyword);
+                                                $sql .= " AND (p.nm_produk LIKE '%$safeKeyword%' OR k.nm_kategori LIKE '%$safeKeyword%')";
                                             }
+
 
                                             $sql .= " $orderBy LIMIT $limit OFFSET $offset";
 
@@ -456,8 +460,10 @@ session_start();
                                                 $countSql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
                                             }
                                             if (!empty($keyword)) {
-                                                $countSql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
+                                                $safeKeyword = mysqli_real_escape_string($koneksi, $keyword);
+                                                $countSql .= " AND (p.nm_produk LIKE '%$safeKeyword%' OR k.nm_kategori LIKE '%$safeKeyword%')";
                                             }
+
 
                                             $countQuery = mysqli_query($koneksi, $countSql);
                                             $totalData = mysqli_fetch_assoc($countQuery)['total'];
@@ -475,7 +481,8 @@ session_start();
                                                 $sql .= " AND p.id_kategori = '" . mysqli_real_escape_string($koneksi, $kategori) . "'";
                                             }
                                             if (!empty($keyword)) {
-                                                $sql .= " AND p.nm_produk LIKE '%" . mysqli_real_escape_string($koneksi, $keyword) . "%'";
+                                                $safeKeyword = mysqli_real_escape_string($koneksi, $keyword);
+                                                $sql .= " AND (p.nm_produk LIKE '%$safeKeyword%' OR k.nm_kategori LIKE '%$safeKeyword%')";
                                             }
 
                                             $sql .= " $orderBy LIMIT $limit OFFSET $offset";

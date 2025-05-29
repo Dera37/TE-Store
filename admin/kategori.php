@@ -125,7 +125,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-grid"></i>
+                    <i class="bi bi-house-door"></i>
                     <span>Beranda</span>
                 </a>
             </li><!-- End Dashboard Nav -->
