@@ -123,14 +123,14 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                 </a>
             </li><!-- End Dashboard Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="kategori.php">
+                <a class="nav-link collapsed" href="kategori.php">
                 <i class="bi bi-box2-fill"></i>
                     <span>Kategori Produk</span>
                 </a>
             </li><!-- End Kategori Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="produk.php">
+                <a class="nav-link" href="produk.php">
                 <i class="bi bi-basket-fill"></i>
                     <span>Produk</span>
                 </a>

@@ -123,7 +123,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                 </a>
             </li><!-- End Dashboard Nav -->
             <li class="nav-item">
-                <a class="nav-link" href="kategori.php">
+                <a class="nav-link collapsed" href="kategori.php">
                 <i class="bi bi-box2-fill"></i>
                     <span>Kategori Produk</span>
                 </a>
@@ -144,9 +144,9 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="transaksi.php">
+                <a class="nav-link" href="transaksi.php">
                 <i class="bi bi-clipboard2-fill"></i>
-                    <span>TRANSAKSI</span>
+                    <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
