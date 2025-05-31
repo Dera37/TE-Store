@@ -146,7 +146,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
                 <i class="bi bi-clipboard2-fill"></i>
-                    <span>Transaksi</span>
+                    <span>TRANSAKSI</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
