@@ -129,53 +129,53 @@ if (isset($_POST['simpan'])) {
 
 <ul class="sidebar-nav" id="sidebar-nav">
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="index.php">
-      <i class="bi bi-grid"></i>
-      <span>Beranda</span>
-    </a>
-  </li><!-- End Dashboard Nav -->
+   <li class="nav-item">
+                <a class="nav-link collapsed" href="index.php">
+                    <i class="bi bi-house-door"></i>
+                    <span>Beranda</span>
+                </a>
+            </li><!-- End Dashboard Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link" href="kategori.php">
-    <i class="bi bi-airplane"></i>
-      <span>Kategori</span>
-    </a>
-  </li><!-- End Kategori Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link" href="kategori.php">
+                <i class="bi bi-box2-fill"></i>
+                    <span>Kategori Produk</span>
+                </a>
+            </li><!-- End Kategori Page Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="produk.php">
-      <i class="bi bi-question-circle"></i>
-      <span>Produk</span>
-    </a>
-  </li><!-- End Produk Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="produk.php">
+                <i class="bi bi-basket-fill"></i>
+                    <span>Produk</span>
+                </a>
+            </li><!-- End Produk Page Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="keranjang.php">
-      <i class="bi bi-envelope"></i>
-      <span>Keranjang</span>
-    </a>
-  </li><!-- End Keranjang Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="keranjang.php">
+                <i class="bi bi-cart4"></i>
+                    <span>Keranjang</span>
+                </a>
+            </li><!-- End Keranjang Page Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="transaksi.php">
-      <i class="bi bi-card-list"></i>
-      <span>Transaksi</span>
-    </a>
-  </li><!-- End Transaksi Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="transaksi.php">
+                <i class="bi bi-clipboard2-fill"></i>
+                    <span>Transaksi</span>
+                </a>
+            </li><!-- End Transaksi Page Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="Laporan.php">
-      <i class="bi bi-box-arrow-in-right"></i>
-      <span>Laporan</span>
-    </a>
-  </li><!-- End Laporan Page Nav -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="Laporan.php">
+                <i class="bi bi-pencil-square"></i>
+                    <span>Laporan</span>
+                </a>
+            </li><!-- End Laporan Page Nav -->
 
-  <li class="nav-item">
-    <a class="nav-link collapsed" href="pengguna.php">
-      <i class="bi bi-dash-circle"></i>
-      <span>Pengguna</span>
-    </a>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="pengguna.php">
+                <i class="bi bi-person-circle"></i>
+                    <span>Pengguna</span>
+                </a>
   </li><!-- End Pengguna Page Nav -->
 
 </ul>
@@ -231,7 +231,7 @@ if (isset($_POST['simpan'])) {
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://instagram.com/dera.rdnk/" target="_blank">Dera</a>
+      Designed by <a href="https://instagram.com/dera.rdnk/" target="_blank">Dera Ardanik</a>
     </div>
   </footer><!-- End Footer -->
 

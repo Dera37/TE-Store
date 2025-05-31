@@ -78,7 +78,7 @@ if (isset($_POST['update'])) {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - te store Admin</title>
+    <title>Produk - TE-Store Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -111,7 +111,7 @@ if (isset($_POST['update'])) {
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.php" class="logo d-flex align-items-center">
                 <img src="assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">te store</span>
+                <span class="d-none d-lg-block">TE-Store</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
@@ -163,45 +163,45 @@ if (isset($_POST['update'])) {
                     <i class="bi bi-house-door"></i>
                     <span>Beranda</span>
                 </a>
-            </li><!-- End Beranda Nav -->
-
+            </li><!-- End Dashboard Nav -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-tags"></i>
+                <i class="bi bi-box2-fill"></i>
                     <span>Kategori Produk</span>
                 </a>
-            </li><!-- End Kategori Produk Page Nav -->
+            </li><!-- End Kategori Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link" href="produk.php">
-                    <i class="bi bi-shop"></i>
+                <i class="bi bi-basket-fill"></i>
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="keranjang.php">
-                    <i class="bi bi-cart"></i>
+                <i class="bi bi-cart4"></i>
                     <span>Keranjang</span>
                 </a>
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-receipt"></i>
+                <i class="bi bi-clipboard2-fill"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-file-earmark-bar-graph"></i>
+                <a class="nav-link collapsed" href="Laporan.php">
+                <i class="bi bi-pencil-square"></i>
                     <span>Laporan</span>
                 </a>
             </li><!-- End Laporan Page Nav -->
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pengguna.php">
-                    <i class="bi bi-people"></i>
+                <i class="bi bi-person-circle"></i>
                     <span>Pengguna</span>
                 </a>
             </li><!-- End Pengguna Page Nav -->
@@ -290,7 +290,7 @@ if (isset($_POST['update'])) {
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>te store</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>TE-Store</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             Designed by <a href="link ig">Dera Ardanik</a>
