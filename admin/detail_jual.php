@@ -62,12 +62,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div><!-- End Logo -->
 
-        <div class="search-bar">
-            <form class="search-form d-flex align-items-center" method="GET" action="">
-                <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-                <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-            </form>
-        </div><!-- End Search Bar -->
+        <!-- End Search Bar -->
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
@@ -117,51 +112,52 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="index.php">
-                    <i class="bi bi-house-door"></i>
-                    <span>Beranda</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="kategori.php">
-                    <i class="bi bi-airplane"></i>
-                    <span>Kategori</span>
-                </a>
-            </li><!-- End Kategori Page Nav -->
+        <a class="nav-link collapsed" href="index.php">
+          <i class="bi bi-house-door"></i>
+          <span>Beranda</span>
+        </a>
+      </li><!-- End Dashboard Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link" href="produk.php">
-                    <i class="bi bi-question-circle"></i>
-                    <span>Produk</span>
-                </a>
-            </li><!-- End Produk Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="kategori.php">
+          <i class="bi bi-box2-fill"></i>
+          <span>Kategori</span>
+        </a>
+      </li><!-- End Kategori Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="keranjang.php">
-                    <i class="bi bi-envelope"></i>
-                    <span>Keranjang</span>
-                </a>
-            </li><!-- End Keranjang Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="produk.php">
+        <i class="bi bi-basket-fill"></i>
+          <span>Produk</span>
+        </a>
+      </li><!-- End Produk Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="transaksi.php">
-                    <i class="bi bi-card-list"></i>
-                    <span>Transaksi</span>
-                </a>
-            </li><!-- End Transaksi Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="keranjang.php">
+        <i class="bi bi-cart-plus-fill"></i>
+          <span>Keranjang</span>
+        </a>
+      </li><!-- End Keranjang Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="laporan.php">
-                    <i class="bi bi-box-arrow-in-right"></i>
-                    <span>Laporan</span>
-                </a>
-            </li><!-- End Laporan Page Nav -->
+      <li class="nav-item">
+        <a class="nav-link" href="transaksi.php">
+        <i class="bi bi-clipboard2-fill"></i>
+          <span>Transaksi</span>
+        </a>
+      </li><!-- End Transaksi Page Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="pengguna.php">
-                    <i class="bi bi-dash-circle"></i>
-                    <span>Pengguna</span>
-                </a>
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="Laporan.php">
+        <i class="bi bi-pencil-square"></i>
+          <span>Laporan</span>
+        </a>
+      </li><!-- End Laporan Page Nav -->
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="pengguna.php">
+        <i class="bi bi-person-circle"></i>
+          <span>Pengguna</span>
+        </a>
             </li><!-- End pengguna Page Nav -->
         </ul>
 
@@ -170,11 +166,11 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Produk</h1>
+            <h1>Detail Jual</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
-                    <li class="breadcrumb-item active">Produk</li>
+                    <li class="breadcrumb-item active">Detail Jual</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
