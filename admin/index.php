@@ -186,7 +186,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <div class="col-12">
               <div class="card info-card customers-card shadow-sm w-100">
                 <div class="card-body text-center py-4">
-                  <h4 clas="mb-2">Selamat datang di Website Admin <strong>TE STORE!</strong></h4>
+                  <h4 clas="mb-2">Selamat datang di Website Admin <strong>TE-Store!</strong></h4>
                   <p class="text-muted small mb-0">Kelola produk, transaksi, dan pelanggan dengan mudah</p>
                 </div>
               </div>
@@ -257,7 +257,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://instagram.com/dera.rdnk/" target="_blank">Dera</a>
+      Designed by <a href="https://instagram.com/dera.rdnk/" target="_blank">Dera Ardanik</a>
     </div>
   </footer><!-- End Footer -->
 
