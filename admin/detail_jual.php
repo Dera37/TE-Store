@@ -24,7 +24,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Detail Jual - TE-Store Admin</title>
+    <title>Transaksi - TE-Store Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -265,7 +265,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>te store</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>TE-Store</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             Designed by <a href="https://instagram.com/namaig/">Dera Ardanik</a>

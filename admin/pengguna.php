@@ -265,7 +265,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <!-- ======= Footer ======= -->
     <footer id="footer" class="footer">
         <div class="copyright">
-            &copy; Copyright <strong><span>te store</span></strong>. All Rights Reserved
+            &copy; Copyright <strong><span>TE-Store</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
             Designed by <a href="https://instagram.com/dea.salsa.503/" target="_blank">Dera ardanik</a>
