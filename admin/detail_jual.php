@@ -24,7 +24,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Produk - TE-Store Admin</title>
+    <title>Detail Jual - TE-Store Admin</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -170,6 +170,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                    <li class="breadcrumb-item active">Transaksi</li>
                     <li class="breadcrumb-item active">Detail Jual</li>
                 </ol>
             </nav>
