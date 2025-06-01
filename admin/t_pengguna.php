@@ -137,7 +137,7 @@ if (isset($_POST['simpan'])) {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
                 <i class="bi bi-box2-fill"></i>
-                    <span>Kategori Produk</span>
+                    <span>Kategori</span>
                 </a>
             </li><!-- End Kategori Page Nav -->
 
@@ -149,7 +149,7 @@ if (isset($_POST['simpan'])) {
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link" href="keranjang.php">
+                <a class="nav-link collapsed " href="keranjang.php">
                 <i class="bi bi-cart4"></i>
                     <span>Keranjang</span>
                 </a>
@@ -164,13 +164,13 @@ if (isset($_POST['simpan'])) {
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Laporan.php">
-                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-pencil- square"></i>
                     <span>Laporan</span>
                 </a>
             </li><!-- End Laporan Page Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="pengguna.php">
+                <a class="nav-link" href="pengguna.php">
                 <i class="bi bi-person-circle"></i>
                     <span>Pengguna</span>
                 </a>

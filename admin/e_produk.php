@@ -167,7 +167,7 @@ if (isset($_POST['update'])) {
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
                 <i class="bi bi-box2-fill"></i>
-                    <span>Kategori Produk</span>
+                    <span>Kategori</span>
                 </a>
             </li><!-- End Kategori Page Nav -->
 
