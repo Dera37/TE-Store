@@ -73,7 +73,7 @@ $html = '<html>
 <body>
     <h1 align="center">TE-Store</h1>
     <hr>
-    <h1 align="center">LAPORAN DATA PRODUK</h1>
+    <h1 align="center">LAPORAN TRANSAKSI</h1>
     <table align="center" cellspacing="0">
         <thead>
             <tr>
