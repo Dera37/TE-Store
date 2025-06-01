@@ -67,7 +67,7 @@ session_start();
                         <div class="col-lg-3">
                             <div class="logo pb-sm-30 pb-xs-30">
                                 <a href="index.php" style="color: #D2FF72;">
-                                    <h1>TE-store</h1>
+                                    <h1>TE-Store</h1>
                                 </a>
                             </div>
                         </div>
@@ -467,7 +467,7 @@ session_start();
                                 <div class="footer-logo">
                                     <h1 style="color: #900C3F;">TE-Store</h1>
                                     <p class="info">
-                                        Inovasi dalam genggaman Anda - hanya di <strong style="color: #900C3F;">TE Store</strong>.
+                                        Inovasi dalam genggaman Anda - hanya di <strong style="color: #900C3F;">TE-Store</strong>.
                                         Kami menyediakan pilihan lengkap mulai dari smartphone terbaru, laptop hadal, hingga aksesoris elektronik kekinian. Belanja jadi lebih mudah, praktis, dan hemat untuk semua kebutuhan digital Anda.
                                     </p>
                                 </div>
@@ -600,7 +600,6 @@ session_start();
                                         <div class="product-additional-info pt-25">
                                             <div class="product-social-sharing pt-25">
                                                 <ul>
-                                                    <li class="facebook"><a href="#"><i class="fa fa-facebook"></i>Facebook</a></li>
                                                     <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
                                                 </ul>
                                             </div>
