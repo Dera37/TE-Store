@@ -26,7 +26,7 @@ $mpdf = new \Mpdf\Mpdf();
 
 $html = '<html>
 <head>
-    <title>Laporan Transaksi</title>
+    <title>Laporan Transaksi Penjualan</title>
     <style>
         h1 {
             color: #262626;
@@ -73,7 +73,7 @@ $html = '<html>
 <body>
     <h1 align="center">TE-Store</h1>
     <hr>
-    <h1 align="center">LAPORAN TRANSAKSI</h1>
+    <h1 align="center">LAPORAN TRANSAKSI PENJUALAN</h1>
     <table align="center" cellspacing="0">
         <thead>
             <tr>
