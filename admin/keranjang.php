@@ -196,7 +196,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                     <?php 
                                     if  ($result_kategori->num_rows > 0) {
                                         while ($row = $result_kategori->fetch_assoc()) {
-                                            $selected = ($filter_kategori == $row['id_kategori']) ? "selected" : "";
+                                            $selected = ($kategori_filter == $row['id_kategori']) ? "selected" : "";
                                             echo "<option value='". $row['id_kategori'] . "'$selected>" . htmlspecialchars($row['nm_kategori']) . "</option>";
                                         }
                                     }
@@ -231,7 +231,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
                              // Tambah filter kategori jika dipilih
                              if (!empty($filter_kategori)) {
-                                $sql .= "WHERE k.id_kategori = '$filter_kategori'";
+                                $sql .= " WHERE k.id_kategori = '$filter_kategori'";
                              }
                              $result = $koneksi -> query($sql);
                              ?>

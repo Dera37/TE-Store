@@ -188,12 +188,12 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
 
         // Query untuk mengambil data penjualan dengan filer kategori jika ada
         $sql = "SELECT j.id_jual, u.username, j.tgl_jual, j.total, j.diskon
-        FROM tb_jual j
-        JOIN tb_user u ON j.id_user = u.id_user";
+        FROM tb_jual j JOIN tb_user u ON j.id_user = u.id_user";
 
         if (!empty($kategori_filter)) {
             // Jika kategori dipilih, filter berdasarkan kategori yang terkait dengan produk dalam tb_jualdtl
-            $sql .= "JOIN tb_jualdtl jd ON j.id_jual = jd.id_jual JOIN tb_produk p ON jd.id_produk = p.id_produk WHERE p.id_kategori = '$kategori_filter'";
+            $sql .= " JOIN tb_jualdtl jd ON j.id_jual = jd.id_jual 
+            JOIN tb_produk p ON jd.id_produk = p.id_produk WHERE p.id_kategori = '$kategori_filter'";
         }
 
         $sql .= " GROUP BY j.id_jual ORDER BY j.tgl_jual ASC"; // Mengelompokkan dan mengurutkan berdasarkan tanggal terbaru
