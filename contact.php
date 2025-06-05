@@ -427,8 +427,8 @@
                 <div class="container">
                     <div class="breadcrumb-content">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
-                            <li class="active">Contact</li>
+                            <li><a href="index.html">Beranda</a></li>
+                            <li class="active">Hubungi Kami</li>
                         </ul>
                     </div>
                 </div>
