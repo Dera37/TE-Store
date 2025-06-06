@@ -33,7 +33,7 @@ if (isset($_POST['update'])) {
     $stok = $_POST['stok'];
     $desk = $_POST['desk'];
     $id_kategori = $_POST['id_kategori'];
-    $gamabr_lama = $_POST['gambar lama'];
+    $gamabr_lama = $_POST['gambar_lama'];
 
     //Cek apakan ada gambar baru yang di upload
     if ($_FILES['gambar']['name'] != "") {
@@ -230,7 +230,7 @@ if (isset($_POST['update'])) {
 
                             <!-- Vertical Form -->
                             <form class="row g-3 mt-2" method="post" enctype="multipart/form-data">
-                                <input type="hidden" name=""$gamabr_lama value="<?php echo $data['gambar']; ?>">
+                                <input type="hidden" name="gambar_lama" $gamabr_lama value="<?php echo $data['gambar']; ?>">
                                 <div class="col-12">
                                     <label for="nm_produk" class="form-label">Nama Produk</label>
                                     <input type="text" class="form-control" id="nm_produk" name="nm_produk" 
