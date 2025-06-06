@@ -11,54 +11,56 @@ if (!isset($_SESSION["login"])) {
 // Cek apakah status tersedia dan pastikan user adalah admin
 if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
     echo "<script>
-    alert('Akses ditolak! Halaman ini hanya untuk Admin.');
-    window.location.href='login.php';
-  </script>";
+        alert('Akses ditolak! Halaman ini hanya untuk Admin.');
+        window.location.href='login.php';
+    </script>";
     exit;
 }
 
-// Mendapatka kode produk otomatis
+// Mendapatkan kode produk otomatis
 $auto = mysqli_query($koneksi, "SELECT MAX(id_produk) AS max_code FROM tb_produk");
 $hasil = mysqli_fetch_array($auto);
-$code = $hasil['max_code'];
+$code = $hasil['max_code'] ?? 'P000'; // Jika null, mulai dari P000
 $urutan = (int)substr($code, 1, 3);
 $urutan++;
 $huruf = "P";
 $id_produk = $huruf . sprintf("%03s", $urutan);
 
 if (isset($_POST['simpan'])) {
-    $nm_produk = $_POST['nm_produk'];
-    $harga = $_POST['harga'];
-    $stok = $_POST['stok'];
-    $desk = $_POST['desk'];
-    $id_kategori = $_POST['id_kategori'];
+    $nm_produk = mysqli_real_escape_string($koneksi, $_POST['nm_produk']);
+    $harga = mysqli_real_escape_string($koneksi, $_POST['harga']);
+    $stok = mysqli_real_escape_string($koneksi, $_POST['stok']);
+    $desk = mysqli_real_escape_string($koneksi, $_POST['desk']);
+    $id_kategori = mysqli_real_escape_string($koneksi, $_POST['id_kategori']);
 
-    //Upload Gambar
+    // Upload Gambar
     $imgfile = $_FILES['gambar']['name'];
     $tmp_file = $_FILES['gambar']['tmp_name'];
     $extension = strtolower(pathinfo($imgfile, PATHINFO_EXTENSION));
 
-    $dir = "produk_img/"; //Direktori penyimpanan gambar
+    $dir = "produk_img/";
     $allowed_extension = array("jpg", "jpeg", "png", "webp");
 
     if (!in_array($extension, $allowed_extension)) {
-        echo "<script>alert('Format tidak valid. Hanya jpg, jpeg, png, dan webp yang diperbolehkan.);<script>";
+        echo "<script>alert('Format tidak valid. Hanya jpg, jpeg, png, dan webp yang diperbolehkan.'); window.location.href='produk.php';</script>";
+        exit;
+    }
+
+    $imgnewfile = md5(time() . $imgfile) . "." . $extension;
+    if (!move_uploaded_file($tmp_file, $dir . $imgnewfile)) {
+        echo "<script>alert('Gagal mengunggah gambar.'); window.location.href='produk.php';</script>";
+        exit;
+    }
+
+    $query = mysqli_query($koneksi, "INSERT INTO tb_produk (id_produk, nm_produk, harga, stok, desk, id_kategori, gambar)
+                VALUES ('$id_produk', '$nm_produk', '$harga', '$stok', '$desk', '$id_kategori', '$imgnewfile')");
+
+    if ($query) {
+        echo "<script>alert('Produk berhasil ditambahkan!'); window.location.href='produk.php';</script>";
+        exit;
     } else {
-        //Rename file gambar agar unik
-        $imgnewfile = md5(time() . $imgfile) . "." . $extension;
-        move_uploaded_file($tmp_file, $dir . $imgnewfile);
-
-        //Simpan  data ke database
-        $query = mysqli_query($koneksi, "INSERT INTO tb_produk (id_produk, nm_produk, harga, stok, desk, id_kategori,
-         gambar) VALUES ('$id_produk', '$nm_produk', '$harga', '$stok', '$desk', '$id_kategori', '$imgnewfile')");
-
-        if ($query) {
-            echo "<script>alert('Produk berhasil ditambahkan!');</script>";
-            header("refresh:0, produk.php");
-        } else {
-            echo "<script>alert('Gagal menambahkan produk!');</script>";
-            header("refresh:0, produk.php");
-        }
+        echo "<script>alert('Gagal menambahkan produk!'); window.location.href='produk.php';</script>";
+        exit;
     }
 }
 ?>
@@ -157,42 +159,42 @@ if (isset($_POST['simpan'])) {
             </li><!-- End Dashboard Nav -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="kategori.php">
-                <i class="bi bi-box2-fill"></i>
+                    <i class="bi bi-box2-fill"></i>
                     <span>Kategori</span>
                 </a>
             </li><!-- End Kategori Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link" href="produk.php">
-                <i class="bi bi-basket-fill"></i>
+                    <i class="bi bi-basket-fill"></i>
                     <span>Produk</span>
                 </a>
             </li><!-- End Produk Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="keranjang.php">
-                <i class="bi bi-cart4"></i>
+                    <i class="bi bi-cart4"></i>
                     <span>Keranjang</span>
                 </a>
             </li><!-- End Keranjang Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="transaksi.php">
-                <i class="bi bi-clipboard2-fill"></i>
+                    <i class="bi bi-clipboard2-fill"></i>
                     <span>Transaksi</span>
                 </a>
             </li><!-- End Transaksi Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="Laporan.php">
-                <i class="bi bi-pencil-square"></i>
+                    <i class="bi bi-pencil-square"></i>
                     <span>Laporan</span>
                 </a>
             </li><!-- End Laporan Page Nav -->
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="pengguna.php">
-                <i class="bi bi-person-circle"></i>
+                    <i class="bi bi-person-circle"></i>
                     <span>Pengguna</span>
                 </a>
             </li><!-- End Pengguna Page Nav -->
