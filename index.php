@@ -250,9 +250,7 @@ session_start();
         <!-- Li's Breadcrumb Area End Here -->
         <!-- Begin Li's Content Wraper Area -->
         <div class="content-wraper pt-60 pb-60">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-9 order-1 order-lg-2">
+            
             <!-- Header Bottom Area End Here -->
             <!-- Begin Mobile Menu Area -->
             <div class="mobile-menu-area mobile-menu-area-4 d-lg-none d-xl-none col-12">
