@@ -507,7 +507,7 @@ session_start();
                                     </li>
                                     <li>
                                         <span>Telepon: </span>
-                                        <a href="#">(+62) 821 9876 5432</a>
+                                        <a href="#">(+62) 882 0068 07145</a>
                                     </li>
                                     <li>
                                         <span>Email: </span>
