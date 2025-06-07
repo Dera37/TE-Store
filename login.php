@@ -276,7 +276,7 @@ if (isset($_POST["login"])) {
                                 <ul class="des">
                                     <li>
                                         <span>ALAMAT: </span>
-                                        Jl. Randu Blatung No.KM.5, Kec. Cepu, Kabupaten Blora, Jawa Tengah 58315
+                                        Jl. Kampus Ronggolawe No.1 Mentul, Indah, Komp. Pertamina, Karangboyo, Kec. Cepu, Kabupaten Blora, Jawa Tengah 58315
                                     </li>
                                     <li>
                                         <span>TELEPON: </span>
