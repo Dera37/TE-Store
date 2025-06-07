@@ -225,6 +225,36 @@ session_start();
             </div>
             <!-- Header Bottom Area End Here -->
             <!-- Begin Mobile Menu Area -->
+            <div class="mobile-menu-area d-lg-none d-xl-none col-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="mobile-menu">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mobile Menu Area End Here -->
+        </header>
+        <!-- Header Area End Here -->
+        <!-- Begin Li's Breadcrumb Area -->
+        <div class="breadcrumb-area">
+            <div class="container">
+                <div class="breadcrumb-content">
+                    <ul>
+                        <li><a href="index.php">Beranda</a></li>
+                        <li class="active">Beranda</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Li's Breadcrumb Area End Here -->
+        <!-- Begin Li's Content Wraper Area -->
+        <div class="content-wraper pt-60 pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9 order-1 order-lg-2">
+            <!-- Header Bottom Area End Here -->
+            <!-- Begin Mobile Menu Area -->
             <div class="mobile-menu-area mobile-menu-area-4 d-lg-none d-xl-none col-12">
                 <div class="container">
                     <div class="row">
