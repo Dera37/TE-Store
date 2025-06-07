@@ -289,7 +289,7 @@ $data = mysqli_fetch_array($sql);
                                     </li>
                                     <li>
                                         <span>EMAIL: </span>
-                                        <a href="mailto://info@testore.com">info@testore.com</a>
+                                        <a href="mailto:info@te-store.id">info@te-store.id</a>
                                     </li>
                                 </ul>
                             </div>
