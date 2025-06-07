@@ -87,24 +87,6 @@ session_start();
                         <!-- Header Logo Area End Here -->
                         <!-- Begin Header Middle Right Area -->
                         <div class="col-lg-9 pl-0 ml-sm-15 ml-xs-15">
-                            <!-- Begin Header Middle Searchbox Area -->
-                            <form action="" method="GET" class="hm-searchbox">
-                                <select name="kategori" class="nice-select select-search-category">
-                                    <option value="">All</option>
-                                    <?php
-                                    include 'admin/koneksi.php';
-                                    $kategoriQuery = mysqli_query($koneksi, "SELECT * FROM tb_kategori ORDER BY nm_kategori ASC");
-                                    while ($kategori = mysqli_fetch_assoc($kategoriQuery)) {
-                                        $selected = (isset($_GET['kategori']) && $_GET['kategori'] == $kategori['id_kategori']) ? 'selected' : '';
-                                        echo "<option value=\"" . htmlspecialchars($kategori['id_kategori']) . "\" $selected>" . htmlspecialchars($kategori['nm_kategori']) . "</option>";
-                                    }
-                                    ?>
-                                </select>
-                                <input type="text" name="keyword" placeholder="Enter your search key ..." value="<?= isset($_GET['keyword']) ? htmlspecialchars($_GET['keyword']) : '' ?>">
-                                <button class="li-btn" type="submit"><i class="fa fa-search"></i></button>
-                            </form>
-
-                            <!-- Header Middle Searchbox Area End Here -->
                             <!-- Begin Header Middle Right Area -->
                             <div class="header-middle-right">
                                 <ul class="hm-menu">
@@ -149,46 +131,79 @@ session_start();
                                         <li class="hm-minicart">
                                             <div class="hm-minicart-trigger">
                                                 <span class="item-icon"></span>
-                                                <span class="item-text">£80.00
-                                                    <span class="cart-item-count">2</span>
-                                                </span>
+
+                                                <?php
+                                                include 'admin/koneksi.php';
+
+                                                $username = $_SESSION['username'];
+                                                $query_user = mysqli_query($koneksi, "SELECT id_user FROM tb_user WHERE username = '$username'");
+                                                $data_user = mysqli_fetch_assoc($query_user);
+                                                $id_user = $data_user['id_user'];
+
+                                                $query_pesanan = mysqli_query($koneksi, "SELECT p.*,pr.nm_produk, pr.gambar, pr.harga FROM tb_pesanan p JOIN tb_produk pr ON p.id_produk = pr.id_produk WHERE p.id_user = '$id_user'");
+                                                $subtotal = 0;
+                                                $total_item = 0;
+                                                while ($row = mysqli_fetch_assoc($query_pesanan)) {
+                                                    $subtotal += $row['harga'] * $row['qty'];
+                                                    $total_item += $row['qty'];
+                                                }
+
+                                                $diskon = 0;
+                                                if ($subtotal >= 3000000) {
+                                                    $diskon = 0.07 * $subtotal;
+                                                } elseif ($subtotal >= 1500000) {
+                                                    $diskon = 0.05 * $subtotal;
+                                                }
+
+                                                $total_bayar = $subtotal - $diskon;
+                                                
+                                                echo "<span class='item-text'>Rp " . number_format($total_bayar, 0) .
+                                                    "<span class='cart-item-count'>" . $total_item . "</span>
+                                                </span>";
+                                                ?>          
                                             </div>
                                             <span></span>
+
                                             <div class="minicart">
                                                 <ul class="minicart-product-list">
+                                                    <?php  
+                                                    mysqli_data_seek($query_pesanan, 0);
+                                                    if (mysqli_num_rows($query_pesanan) > 0) {
+                                                        while ($row = mysqli_fetch_assoc($query_pesanan)) {
+                                                            ?>
                                                     <li>
-                                                        <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/1.jpg" alt="cart products">
+                                                        <a href="detail_produk.php?id=<?= $row['id_produk']; ?>" class="minicart-product-image">
+                                                            <img src="admin/produk_img/<?= $row['gambar'] ?>" alt="cart product" width="70">
                                                         </a>
                                                         <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
+                                                            <h6><a href="detail_produk.php?id=<?= $row['id_produk']; ?>"><?= $row['nm_produk']; ?></a></h6>
+                                                            <span>Rp <?= number_format($row['harga'], 0, ); ?> x <?= $row['qty']; ?></span>
                                                         </div>
-                                                        <button class="close">
+                                                        <form method="POST" action="hapus_pesanan.php?id=<?= $row['id_pesanan']; ?>" style="display:inline;">
+                                                            <input type="hidden" name="id_pesanan" value="<?=$row['id_pesanan']; ?>">
+                                                        <button class="close" type="submit">
                                                             <i class="fa fa-close"></i>
                                                         </button>
+                                                        </form>
                                                     </li>
-                                                    <li>
-                                                        <a href="single-product.html" class="minicart-product-image">
-                                                            <img src="images/product/small-size/2.jpg" alt="cart products">
-                                                        </a>
-                                                        <div class="minicart-product-details">
-                                                            <h6><a href="single-product.html">Aenean eu tristique</a></h6>
-                                                            <span>£40 x 1</span>
-                                                        </div>
-                                                        <button class="close">
-                                                            <i class="fa fa-close"></i>
-                                                        </button>
-                                                    </li>
+                                                    <?php
+                                                        }
+                                                    } else {
+                                                        echo "<li>Keranjang Kosong.</li>";
+                                                    }
+                                                    ?>
                                                 </ul>
-                                                <p class="minicart-total">SUBTOTAL: <span>£80.00</span></p>
+                                                <p class="minicart-total">TOTAL BAYAR: <span>Rp<?= number_format($total_bayar, 0); ?></span></p>
                                                 <div class="minicart-button">
                                                     <a href="cart.php" class="li-button li-button-dark li-button-fullwidth li-button-sm">
-                                                        <span>View Full Cart</span>
+                                                        <span>Lihat Keranjang</span>
                                                     </a>
-                                                    <a href="checkout.html" class="li-button li-button-fullwidth li-button-sm">
-                                                        <span>Checkout</span>
-                                                    </a>
+                                                    <form method="POST" action="cart.php">
+                                                        <input type="hidden" name="checkout" value="1">
+                                                        <button type="submit" class="li-button li-button-fullwidth li-button-sm" style="border: none !important;">
+                                                            <span>Checkout</span>
+                                                        </button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </li>
