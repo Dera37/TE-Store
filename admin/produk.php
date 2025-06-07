@@ -219,12 +219,12 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
                                     $no = 1;
 
                                     // Ambil keyword pencarian dari GET
-                                    $quey = isset($_GET['query']) ? mysqli_real_escape_string($koneksi, $_GET['query']) : '';
+                                    $query = isset($_GET['query']) ? mysqli_real_escape_string($koneksi, $_GET['query']) : '';
 
                                     //Tambah WHERE jika query tidak kosong
                                     $sql_query = "SELECT tb_produk.*, tb_kategori.nm_kategori FROM tb_produk LEFT JOIN tb_kategori ON tb_produk.id_kategori = tb_kategori.id_kategori";
 
-                                    if (!empty($squery)) {
+                                    if (!empty($query)) {
                                         $sql_query .= " WHERE tb_produk.nm_produk LIKE '%query%' OR tb_kategori.nm_kategori LIKE '%$query%' OR tb_produk.desk LIKE '%$query%'";
                                     }
 
