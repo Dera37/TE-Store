@@ -9,7 +9,7 @@ session_start();
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Contact || limupa - Digital Products Store eCommerce Bootstrap 4 Template</title>
+    <title>Hubungi Kami - TE-Store</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
@@ -267,11 +267,11 @@ session_start();
 
                             <div class="single-contact-block">
                                 <h4><i class="fa fa-fax"></i> Alamat</h4>
-                                <p>123 Main Street, Anytown, CA 12345 – USA</p>
+                                <p>Jl. Kampus Ronggolawe No.1 Mentul, Indah, Komp. Pertamina, Karangboyo, Kec. Cepu, Kabupaten Blora, Jawa Tengah 58315</p>
                             </div>
                             <div class="single-contact-block">
                                 <h4><i class="fa fa-phone"></i> Telepon</h4>
-                                <p>(+62) 821 9876 5432</p>
+                                <p>(+62) 882 0068 07145</p>
                             </div>
                             <div class="single-contact-block last-child">
                                 <h4><i class="fa fa-envelope-o"></i> Email</h4>
