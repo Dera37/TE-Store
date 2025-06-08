@@ -9,9 +9,6 @@ $data = mysqli_fetch_array($sql);
 ?>
 
 <!doctype html>
-<html lang="zxx">
-
-<!doctype html>
 <html class="no-js" lang="zxx">
 
 <!-- login-register31:27-->
@@ -60,7 +57,7 @@ $data = mysqli_fetch_array($sql);
 
 <body>
     <?php
-    if ($_SERVER["REQUEST_METHOD"] == 'POST') {
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (registrasi($_POST)) {
             echo "<script>alert('User baru berhasil ditambahkan');";
             echo "window.location.href = 'login.php';</script>";

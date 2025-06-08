@@ -16,7 +16,7 @@ function registrasi($data) {
     $urutan = (int)substr($code, 1, 3);
     $urutan++;
     $huruf = "U";
-    $id_user = $huruf . sprintf("%03", $urutan);
+    $id_user = $huruf . sprintf("%03s", $urutan);
 
     //Cek apakah username sudah ada
     $result = mysqli_query($koneksi, "SELECT username FROM tb_user WHERE username = '$username'");
@@ -27,11 +27,17 @@ function registrasi($data) {
         return false;
     }
 
+    // Cek konfirmasi password
+    if ($password !== $password) {
+        echo "<script>alert('konfirmasi password tidak sesuai');</script>";
+        return false;
+    }
+
     //Enkripsi password
     $password = password_hash($password, PASSWORD_DEFAULT);
 
     //Tambah user baru di database
-    $query = "INSERT INTO tb_user (id_user, username, password, status) VALUES ('$id_user', '$password', '$status')";
+    $query = "INSERT INTO tb_user (id_user, username, password, status) VALUES ('$id_user', '$username', '$password', '$status')";
     mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
