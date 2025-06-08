@@ -293,7 +293,7 @@ if (isset($_POST['update'])) {
             &copy; Copyright <strong><span>TE-Store</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="link ig">Dera Ardanik</a>
+            Designed by <a href="https://instagram.com/dera.rdnk/" target="_blank">Dera Ardanik</a>
         </div>
     </footer><!-- End Footer -->
 
