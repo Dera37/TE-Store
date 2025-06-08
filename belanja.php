@@ -754,7 +754,7 @@ session_start();
                                     <h3 class="footer-block-title">Ikuti Kami</h3>
                                     <ul class="social-link">
                                         <li class="instagram">
-                                            <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
+                                            <a  href="https://www.instagram.com/dera.rdnk/" data-toggle="tooltip" target="_blank" title="Instagram">
                                                 <i class="fa fa-instagram"></i>
                                             </a>
                                         </li>

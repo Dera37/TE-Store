@@ -533,7 +533,7 @@ session_start();
                                     <ul class="social-link">
                                         </li>
                                         <li class="instagram">
-                                            <a href="https://www.instagram.com/" data-toggle="tooltip" target="_blank" title="Instagram">
+                                            <a  href="https://www.instagram.com/dera.rdnk/" data-toggle="tooltip" target="_blank" title="Instagram">
                                                 <i class="fa fa-instagram"></i>
                                             </a>
                                         </li>
