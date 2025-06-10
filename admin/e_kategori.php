@@ -208,7 +208,7 @@ if (isset($_POST['simpan'])) {
                 </div>
                 <div class="text-center">
                   <button type="reset" class="btn btn-secondary">Reset</button>
-                  <button type="submit" class="btn btn-primary" name="simpan">Submit</button>
+                  <button type="submit" class="btn btn-primary" name="simpan">Simpan</button>
                 </div>
               </form><!-- Vertical Form -->
 
