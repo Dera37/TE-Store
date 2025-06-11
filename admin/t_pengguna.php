@@ -186,7 +186,7 @@ if (isset($_POST['simpan'])) {
             <h1>Pengguna</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                    <li class="breadcrumb-item">Beranda</a></li>
                     <li class="breadcrumb-item">Pengguna</li>
                     <li class="breadcrumb-item active">Tambah</li>
                 </ol>

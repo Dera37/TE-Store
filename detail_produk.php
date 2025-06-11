@@ -318,7 +318,8 @@ session_start();
                                 <div class="product-additional-info pt-25">
                                     <div class="product-social-sharing pt-25">
                                         <ul>
-                                            <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                            <li class="instagram"><a href="https://www.instagram.com/dera.rdnk/" data-toggle="tooltip" target="_blank" title="Instagram"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                            
                                         </ul>
                                     </div>
                                 </div>
@@ -399,12 +400,8 @@ session_start();
                                             <div class="add-actions">
                                                 <ul class="add-actions-link">
                                                     <li class="add-cart active">
-                                                        <a href="detail_produk.php?id_produk=<?= $p['id_produk'] ?>">Beli Sekarang</a>
-                                                    <li>
-                                                        <a href="detail_produk.php?id_produk=<?= $p['id_produk'] ?>"title="Quick View" class="quick-view-btn">
-                                                            <i class="fa fa-eye"></i>
-                                                        </a>
-                                                    </li>
+                                                        <a href="detail_produk.php?id=<?= $p['id_produk'] ?>">Beli Sekarang</a>
+
                                                 </ul>
                                             </div>
                                         </div>

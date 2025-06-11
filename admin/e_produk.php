@@ -215,7 +215,7 @@ if (isset($_POST['update'])) {
             <h1>Produk</h1>
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Beranda</a></li>
+                    <li class="breadcrumb-item">Beranda</a></li>
                     <li class="breadcrumb-item">Produk</li>
                     <li class="breadcrumb-item active">Edit</li>
                 </ol>
