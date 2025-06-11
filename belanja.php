@@ -851,7 +851,7 @@ session_start();
                                             <div class="product-social-sharing pt-25">
                                                 <ul>
                                                     
-                                                    <li class="instagram"><a href="#"><i class="fa fa-instagram"></i>Instagram</a></li>
+                                                    <li class="instagram"><a href="https://www.instagram.com/dera.rdnk/" data-toggle="tooltip" target="_blank" title="Instagram"><i class="fa fa-instagram"></i>Instagram</a></li>
                                                 </ul>
                                             </div>
                                         </div>
