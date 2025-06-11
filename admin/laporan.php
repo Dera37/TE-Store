@@ -289,7 +289,7 @@ if (!isset($_SESSION["status"]) || $_SESSION["status"] !== "admin") {
             &copy; Copyright <strong><span>TE-Store</span></strong>. All Rights Reserved
         </div>
         <div class="credits">
-            Designed by <a href="https://instagram.com/namaig/">Dera Ardanik</a>
+            Designed by <a href="https://instagram.com/dera.rdnk/" target="_blank">Dera Ardanik</a>
         </div>
     </footer><!-- End Footer -->
 
